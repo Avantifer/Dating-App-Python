@@ -1,0 +1,51 @@
+@import '../../../../assets/scss/styles.scss';
+
+nav {
+    background-color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 100vw;
+    position: fixed;
+    z-index: 2;
+
+    a {
+        img {
+            width: 35px;
+        }
+    }
+
+    li {
+        a {
+            width: auto;
+            color : $lightgray;
+
+            &:hover, &:hover > * {
+                color: $red;
+                cursor: pointer;
+            }
+
+            mat-icon {
+                color: $lightgray;
+                margin-right: 0.2rem;
+            }
+        }
+    }
+
+    .btnLogin {
+        margin: 0 2rem;
+        height: 100%;
+        padding: 0 2rem;
+        background-color: $lightred;
+        color: white;
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+        border-radius: 0.5rem;
+    }
+}
+
+@media (max-width : 767.98px) {
+    .btnLogin {
+        margin: 1rem 0 !important;
+    }
+}

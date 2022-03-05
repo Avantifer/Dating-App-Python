@@ -1,0 +1,55 @@
+@import '../../../assets/scss/styles.scss';
+
+.container-fluid {
+    padding: 0;
+    overflow-x: hidden;
+
+    .img {
+        width: 100vw;
+        height: 80vh;
+        background-image: url('../../../assets/img/home1.jfif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    }
+
+    .characteristics {
+        transform: translateY(-1.5rem);
+        background-color: rgb(249, 249, 249);
+        
+        .characteristic {
+            min-width: 10rem;
+            max-width: 15rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transform: translateY(-1.2rem);
+    
+            &::before {
+                content: "";
+                width: 60px;
+                height: 60px;
+                background-color: $red;
+                position: absolute;
+                top: -8.5%;
+                left: 37.5%;
+                z-index: -1;
+                border-radius: 50%;
+            }
+    
+            &__img {
+                width: 40px;
+                margin-bottom: 1rem;
+                z-index: 1;
+                filter: invert(1);
+            }
+
+            &__text {
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
+        }
+    }
+}
+

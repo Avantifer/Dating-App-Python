@@ -1,0 +1,9 @@
+<div class="container-fluid" data-aos="fade-down">
+    <div class="img"></div>
+    <div class="characteristics d-flex flex-wrap flex-row justify-content-evenly" >
+        <div class="characteristic" *ngFor="let charac of characteristics">
+            <img [src]="charac.img" alt="Image of the characteristic" class="characteristic__img">
+            <p class="characteristic__text">{{charac.text | translate}}</p>
+        </div>
+    </div>
+</div>
