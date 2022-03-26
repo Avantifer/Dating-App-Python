@@ -1,38 +1,54 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light" data-aos="fade-down">
-    <a class="navbar-brand" href="#"><img src="../../../assets/icons/logo.png" alt="Logo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item mr-4">
-          <a class="nav-link" href="#">{{'Safety' | translate}}</a>
-        </li>
-        <li class="nav-item mr-4">
-          <a class="nav-link" href="#">{{'Privacity' | translate}}</a>
-        </li>
-        <li class="nav-item mr-4">
-          <a class="nav-link" href="#">{{'Support' | translate}}</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" [matMenuTriggerFor]="menu">{{'Menu' | translate}}</a>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>Secret Love Plus</button>
-                <button mat-menu-item>Secret Love Mega</button>
-                <button mat-menu-item>Secret Love Ultra</button>
-            </mat-menu>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-          <li class="nav-item language d-flex flex-row align-items-center">
-            <a class="d-flex flex-row align-items-center" (click)="openLanguageModal()">
-              <mat-icon>language</mat-icon>
-              {{this.langService.getLangName() | translate}}
-            </a>
-          </li>
-          <li class="nav-item">
-              <button mat-button class="btnLogin">{{'Log in' | translate}}</button>
-          </li>
-      </ul>
-    </div>
-</nav>    
+<nav
+  class="navbar navbar-expand-md navbar-light bg-light fixed-top font-weight-bold"
+  data-aos="fade-down"
+>
+  <a class="navbar-brand mr-4" href="#"
+    ><img src="../../../assets/icons/logo.png" alt="Logo"
+  /></a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="menu-collapse"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item mr-3" *ngFor="let navLink of navLinks">
+        <a class="nav-link" href="#">{{ navLink.name | translate }}</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" role="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{
+          "Products" | translate
+        }}</a>
+        <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item font-weight-bold py-2" role="button" *ngFor="let menuItem of menuItems">{{menuItem.name}}</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item language d-flex flex-row align-items-center">
+        <a
+          class="d-flex flex-row align-items-center"
+          (click)="openLanguageModal()"
+          role="button"
+        >
+          <mat-icon class="mr-1">language</mat-icon>
+          {{ this.langService.getLangName() | translate }}
+        </a>
+      </li>
+      <li class="nav-item">
+        <button
+          mat-button
+          class="btnLogin px-4 mx-4 d-flex"
+          (click)="openLoginModal()"
+        >
+          {{ "Log in" | translate }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

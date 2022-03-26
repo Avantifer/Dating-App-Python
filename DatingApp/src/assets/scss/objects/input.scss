@@ -1,0 +1,63 @@
+.mat-form-field {
+  width: 90%;
+
+  .btn-password {
+    &:focus {
+      outline: none;
+    }
+
+    mat-icon {
+      bottom: -7px;
+      right: -9px;
+      font-size: 1.2rem;
+      color: $gray;
+    }
+  }
+}
+
+::ng-deep .mat-input-element,
+.mat-form-field-invalid .mat-input-element {
+  caret-color: $gray !important;
+  font-size: 1rem !important;
+  font-family: "Rubik", sans-serif !important;
+  color: $darkgray !important;
+  width: 90% !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0 0.75rem !important;
+  background-color: transparent !important;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px !important;
+  border-radius: 4px !important;
+  outline-color: rgb(84 105 212 / 0.5) !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: transparent !important;
+}
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
+  height: 100% !important;
+  background-color: transparent !important;
+  border: 2px solid $lightred !important;
+  border-radius: 4px !important;
+  left: -1px !important;
+  top: 1px !important;
+}
+
+::ng-deep .mat-form-field-underline {
+  height: 72% !important;
+  width: 100.8% !important;
+}
+
+::ng-depp .mat-form-field.mat-focused .mat-form-field-ripple {
+  opacity: 0 !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+  background-color: transparent !important;
+}

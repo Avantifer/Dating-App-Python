@@ -1,2 +1,4 @@
-html, body { height: 100%; }
+@import 'assets/scss/styles.scss';
+
+html, body { height: 100%; & > * { color: $gray !important;} }
 body { margin: 0; font-family: 'Rubik', "Helvetica Neue", sans-serif !important; }

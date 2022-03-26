@@ -1,0 +1,40 @@
+.quote {
+  box-shadow: 0 2px 6px 0 #656e7b1f;
+  border-radius: 0.5rem;
+  border: 1px solid rgba($lightgray, 0.15);
+
+  .body {
+    padding: 1.5rem 1.5rem 2.5rem;
+    position: relative;
+
+    hr {
+      width: 70%;
+      color: $lightgray;
+      margin: 1rem 0 2rem;
+    }
+
+    .icon {
+      position: absolute;
+      top: -0.5rem;
+      right: 5rem;
+      font-size: 7rem;
+      color: $lightgray;
+    }
+
+    .title,
+    .text {
+      user-select: none;
+    }
+
+    .title {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .text {
+      font-size: 1rem;
+      color: $lightgray;
+      line-height: 1.4rem;
+    }
+  }
+}

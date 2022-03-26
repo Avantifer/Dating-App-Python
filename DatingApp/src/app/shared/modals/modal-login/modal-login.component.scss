@@ -1,0 +1,88 @@
+@import "../../../../assets/scss/styles.scss";
+
+::ng-deep .mat-dialog-container {
+  position: relative;
+  border-radius: 0.75rem;
+  padding: 3rem 1.5rem 1.5rem !important;
+}
+
+.logo {
+  img {
+    width: 6rem;
+  }
+
+  &-welcome {
+    img {
+      width: 4rem;
+    }
+  }
+}
+
+.close {
+  right: 1.25rem;
+  top: 1.25rem;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-family: "Rubik", sans-serif;
+  letter-spacing: 1px;
+
+  &-welcome {
+    font-size: 1.8rem;
+  }
+}
+
+.subtitle {
+  font-size: 0.9rem;
+
+  span {
+    color: $lightgray;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.form {
+  .label {
+    margin: 0 5%;
+  }
+}
+
+.coderesend {
+  color: rgb(75, 75, 248);
+  font-size: 1rem;
+}
+
+code-input {
+
+  ::ng-deep input {
+    font-size: 1.35rem !important;
+    height: 3.25rem !important;
+    width: 3.25rem !important;
+  }
+}
+
+@include responsive(mobileS-down) {
+  .signup-option {
+    & > * {
+      height: 3.5rem;
+    }
+
+    span {
+      font-size: 0.9rem !important;
+    }
+  }
+
+  .form {
+    .btnLogin {
+      margin: 2rem 0;
+      padding: 0;
+      width: 100%;
+    }
+  }
+}

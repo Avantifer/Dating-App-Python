@@ -1,0 +1,45 @@
+.card {
+  max-width: 30rem;
+  min-width: 24rem;
+  box-shadow: 0 6px 16px -3px rgba($gray, 0.25);
+  border-radius: 2rem;
+
+  .icon {
+    top: -1.5rem;
+    left: 45%;
+    font-size: 3rem;
+    z-index: 1;
+    color: $red;
+
+    &::after {
+      content: "";
+      height: 4rem;
+      width: 4rem;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      z-index: -1;
+      box-shadow: 0 20px 80px rgba($gray, 0.25);
+    }
+  }
+
+  &-top-img {
+    height: 18rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+  }
+
+  &-body {
+    .title {
+      font-family: "Rubik", sans-serif;
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+    }
+
+    .text {
+      font-size: 1rem;
+    }
+  }
+}

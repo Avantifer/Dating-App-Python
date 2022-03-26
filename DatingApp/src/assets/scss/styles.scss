@@ -1,2 +1,18 @@
+@import 'elements/buttons.scss';
+@import 'elements/a.scss';
+@import 'elements/headings.scss';
+
+@import 'objects/cards.scss';
+@import 'objects/quotes.scss';
+@import 'objects/characteristics.scss';
+@import 'objects/close.scss';
+@import 'objects/tick.scss';
+@import 'objects/input.scss';
+@import 'objects/signup-option.scss';
+
 @import 'utilities/resetAll.scss';
+@import 'utilities/bootstrapfix.scss';
+
 @import 'settings/colors.scss';
+
+@import 'tools/mixins.scss';

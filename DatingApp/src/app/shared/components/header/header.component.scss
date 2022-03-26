@@ -1,51 +1,42 @@
-@import '../../../../assets/scss/styles.scss';
+@import "../../../../assets/scss/styles.scss";
 
 nav {
-    background-color: rgb(255, 255, 255);
-    font-weight: 600;
-    font-size: 1.1rem;
-    width: 100vw;
-    position: fixed;
-    z-index: 2;
+  font-size: 1.1rem;
 
-    a {
-        img {
-            width: 35px;
-        }
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(255, 255, 255%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  img {
+    width: 2.7rem;
+    height: 2.7rem;
+  }
+
+  a::after {
+    vertical-align: 0.1rem;
+    margin-left: 0.255rem;
+  }
+
+  .dropdown-menu {
+    box-shadow: 0 2px 4px -1px #0003, 0 4px 5px #00000024, 0 1px 10px #0000001f;
+    border: none;
+
+    .dropdown-item {
+      font-size: 0.85rem;
     }
-
-    li {
-        a {
-            width: auto;
-            color : $lightgray;
-
-            &:hover, &:hover > * {
-                color: $red;
-                cursor: pointer;
-            }
-
-            mat-icon {
-                color: $lightgray;
-                margin-right: 0.2rem;
-            }
-        }
-    }
-
-    .btnLogin {
-        margin: 0 2rem;
-        height: 100%;
-        padding: 0 2rem;
-        background-color: $lightred;
-        color: white;
-        font-weight: 500;
-        letter-spacing: 1px;
-        font-size: 1.1rem;
-        border-radius: 0.5rem;
-    }
+  }
 }
 
-@media (max-width : 767.98px) {
-    .btnLogin {
-        margin: 1rem 0 !important;
-    }
+@include responsive(tablet-down) {
+  .btnLogin {
+    margin: 1rem 0 !important;
+  }
+
+  .dropdown-menu {
+    box-shadow: none !important;
+  }
+
+  .dropdown-item {
+    padding: 0.5rem !important;
+  }
 }

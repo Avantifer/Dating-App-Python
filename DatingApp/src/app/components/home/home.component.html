@@ -1,9 +1,63 @@
-<div class="container-fluid" data-aos="fade-down">
-    <div class="img"></div>
-    <div class="characteristics d-flex flex-wrap flex-row justify-content-evenly" >
-        <div class="characteristic" *ngFor="let charac of characteristics">
-            <img [src]="charac.img" alt="Image of the characteristic" class="characteristic__img">
-            <p class="characteristic__text">{{charac.text | translate}}</p>
-        </div>
+<div class="container-fluid p-0 overflow-hidden" data-aos="fade-down">
+  <div class="img vw-100"></div>
+  <div
+    class="characteristics d-flex flex-wrap flex-row justify-content-evenly bg-light"
+  >
+    <div
+      class="characteristic text-center position-relative"
+      *ngFor="let charac of characteristics"
+    >
+      <img
+        [src]="charac.img"
+        alt="Image of the characteristic"
+        class="icon mb-3"
+      />
+      <p class="text">{{ charac.text | translate }}</p>
     </div>
+  </div>
+  <div class="info text-center mx-auto w-50">
+    <h2 class="my-5">
+      Secret Love: {{ "find a partner on our dating sites" | translate }}
+    </h2>
+  </div>
+  <div class="cards row justify-content-around mb-5 mx-auto">
+    <div
+      class="card col-md mt-3 p-0 border-0 position-relative"
+      *ngFor="let card of cards"
+    >
+      <mat-icon class="icon position-absolute">{{ card.icon }}</mat-icon>
+      <img
+        [src]="card.img"
+        alt="Image of the card"
+        class="card-top-img w-100"
+      />
+      <div class="card-body py-4 px-5">
+        <h3 class="title font-weight-bold">{{ card.title | translate }}</h3>
+        <p class="text" *ngFor="let text of card.text">
+          {{ text | translate }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-part bg-light py-5">
+    <div class="info text-center mx-auto w-50">
+      <h2>{{ "Conquer with your words!" | translate }}</h2>
+    </div>
+    <div
+      class="keen-slider quotes d-flex flex-row mx-auto overflow-hidden py-5 px-0"
+      #sliderRef
+    >
+      <div class="keen-slider__slide quote" *ngFor="let quote of quotes">
+        <div class="body">
+          <mat-icon class="icon">format_quote</mat-icon>
+          <div class="title">{{ quote.title | translate }}</div>
+          <hr />
+          <div class="text">{{ quote.text | translate }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="text-center">
+    <div class="text-center p-4">© 2022 Copyright: Fernando Ruiz Rodríguez</div>
+  </footer>
 </div>

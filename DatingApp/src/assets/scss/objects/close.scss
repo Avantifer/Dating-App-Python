@@ -1,0 +1,28 @@
+.close {
+  mat-icon {
+    color: $gray;
+    transition: all 0.25s;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -0.25rem;
+    right: -0.2rem;
+    width: 2rem;
+    height: 2rem;
+    z-index: -1;
+    background-color: transparent;
+    border: 3px solid $gray;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    border-color: $darkgray;
+
+    mat-icon {
+      color: $darkgray;
+      transform: rotate(90deg);
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import '../settings/colors.scss';
+    
+button {
+    height: 100%;
+    background-color: $lightred;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}

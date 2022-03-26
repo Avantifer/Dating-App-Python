@@ -1,0 +1,26 @@
+.characteristic {
+  width: 15rem;
+  transform: translateY(-1.2rem);
+
+  &::before {
+    content: "";
+    width: 3.75rem;
+    height: 3.75rem;
+    background-color: $red;
+    position: absolute;
+    top: -8%;
+    left: 37.2%;
+    border-radius: 50%;
+  }
+
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    filter: invert(1);
+  }
+
+  .text {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+}

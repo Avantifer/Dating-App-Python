@@ -1,0 +1,34 @@
+.signup-option {
+  & > *:hover {
+    border-color: rgb(0, 0, 0);
+
+    span,
+    mat-icon {
+      color: rgb(0, 0, 0);
+    }
+  }
+
+  & > * {
+    cursor: pointer;
+    border: 2px solid $gray;
+    height: 3.375rem;
+
+    span {
+      font-size: 1rem;
+      color: $gray;
+      letter-spacing: 0.7px;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    mat-icon,
+    img {
+      width: 2.5rem;
+    }
+
+    mat-icon {
+      font-size: 2rem;
+      height: 2rem;
+      color: $gray;
+    }
+  }
+}

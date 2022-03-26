@@ -1,0 +1,140 @@
+<div class="close position-absolute" mat-dialog-close>
+  <mat-icon>close</mat-icon>
+</div>
+<div
+  *ngIf="
+    wantsWithEmail === false && codeVerification === false;
+    else registerEmail
+  "
+>
+  <div class="logo w-100 text-center">
+    <img src="../../../../assets/icons/logo.png" alt="logo" />
+  </div>
+  <h1
+    class="title text-center user-select-none font-weight-bold font-italic my-4"
+  >
+    {{ "Start now" | translate }}
+  </h1>
+  <p class="subtitle text-center user-select-none">
+    {{ "By clicking Log In, you agree to our" | translate }}
+    <span class="font-weight-bold">{{ "Terms" | translate }}</span
+    >. {{ "Learn how we process your data in our" | translate }}
+    <span class="font-weight-bold">{{ "Privaty Policy" | translate }}</span>
+    {{ "and" | translate }}
+    <span class="font-weight-bold">{{ "Cookie Policy" | translate }}</span
+    >.
+  </p>
+  <div class="signup-option mt-4">
+    <div
+      class="signup-google signup-option-google d-flex flex-row align-items-center w-100 mb-3 rounded-pill"
+      (click)="loginGoogle()"
+    >
+      <img
+        class="rounded-circle ml-3 mr-2"
+        src="../../../assets/img/google-icon.jpg"
+        alt="Icon of Google"
+      />
+      <span class="user-select-none text-uppercase">{{
+        "Log in with google" | translate
+      }}</span>
+    </div>
+    <div
+      class="singup-mobile signup-option-mobile d-flex flex-row align-items-center w-100 mb-3 rounded-pill"
+      (click)="wantsWithEmail = true"
+    >
+      <mat-icon class="text-center my-1 ml-3 mr-2">email</mat-icon>
+      <span class="user-select-none text-uppercase">{{
+        "Log in with email" | translate
+      }}</span>
+    </div>
+  </div>
+</div>
+
+<ng-template #registerEmail>
+  <div *ngIf="codeVerification === false; else verificationCode">
+    <h1
+      class="title title-welcome text-center user-select-none font-weight-bold font-italic my-4"
+    >
+      {{ "Welcome" | translate }}
+    </h1>
+    <div class="logo-welcome text-center">
+      <img src="../../../../assets/icons/logo.png" alt="logo" />
+    </div>
+    <form [formGroup]="loginForm" class="form text-center w-75 m-auto">
+      <p class="label user-select-none mt-3 mb-1 text-left font-weight-bold">
+        Email
+      </p>
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          type="text"
+          formControlName="email"
+          placeholder="Email"
+          autocomplete="off"
+        />
+        <mat-error *ngIf="loginForm.controls.email.hasError('required')">{{
+          "You need to put an email" | translate
+        }}</mat-error>
+        <mat-error *ngIf="loginForm.controls.email.hasError('pattern')">{{
+          "You need to put a correct email" | translate
+        }}</mat-error>
+      </mat-form-field>
+      <p class="label user-select-none mt-3 mb-1 text-left font-weight-bold">
+        {{ "Password" | translate }}
+      </p>
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password"
+          placeholder="{{ 'Password' | translate }}"
+          autocomplete="off"
+        />
+        <span
+          class="btn-password"
+          mat-icon-button
+          matSuffix
+          (click)="hidePassword = !hidePassword"
+        >
+          <mat-icon class="position-absolute" disableRipple="true" role="button">{{
+            hidePassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </span>
+        <mat-error *ngIf="loginForm.controls.password.hasError('required')">{{
+          "You need to put a password" | translate
+        }}</mat-error>
+        <mat-error *ngIf="loginForm.controls.password.hasError('pattern')">{{
+          "You need to put a correct password" | translate
+        }}</mat-error>
+        <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">{{
+          "You need to put a 8 character password" | translate
+        }}</mat-error>
+      </mat-form-field>
+      <button mat-button class="btnLogin mt-3 px-4" (click)="register()">
+        {{ "Log in" | translate }}
+      </button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #verificationCode>
+  <div class="logo logo-welcome text-center">
+    <img src="../../../../assets/icons/logo.png" alt="logo" />
+  </div>
+  <h1
+    class="title text-center user-select-none font-weight-bold font-italic my-4"
+  >
+    {{ "Introduce your code" | translate }}
+  </h1>
+  <div
+    class="top-part d-flex flex-row justify-content-between align-items-center flex-wrap"
+  >
+    <h3 class="codetext mb-0">
+      {{ "Enter the code sent to" | translate }} {{ emailUser }}
+    </h3>
+    <p class="coderesend text-uppercase mb-0 mr-2" role="button" (click)="sendCodeEmail()">
+      {{ "Resend" | translate }}
+    </p>
+  </div>
+  <code-input class="my-4" [codeLength]="6" (codeCompleted)="verifyCode($event)"></code-input>
+</ng-template>
