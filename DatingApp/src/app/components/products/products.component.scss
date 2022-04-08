@@ -1,0 +1,56 @@
+@import "../../../assets/scss/styles.scss";
+
+.card-back {
+  h5 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  h3 {
+    font-size: 5rem;
+  }
+}
+
+mat-icon {
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+
+  &.favorite {
+    background: linear-gradient(to right, rgb(238, 156, 167), rgb(255, 221, 225));
+  }
+
+  &.place {
+    background: linear-gradient(to right, rgb(0, 180, 219), rgb(0, 131, 176));
+  }
+
+  &.replay {
+    background: linear-gradient(to right, rgb(253, 252, 71), rgb(36, 254, 65));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &.visibility {
+    background: radial-gradient(circle, rgb(3, 0, 30), rgb(115, 3, 192), rgb(236, 56, 188), rgb(253, 239, 249));
+  }
+
+  &.star {
+    background: linear-gradient(to right, rgb(241, 39, 17), rgb(245, 175, 25));
+  }
+
+  &.send {
+    background: linear-gradient(to right, rgb(18, 194, 233), rgb(196, 113, 237), rgb(246, 79, 89));
+    transform: rotate(325deg);
+    margin-bottom: 0.5rem;
+    margin-left: 0.25rem;
+  }
+
+  &.emoji_events {
+    background: linear-gradient(to right, rgb(188, 78, 156), rgb(248, 7, 89));
+  }
+}
+
+@include responsive(mobileL-down) {
+  .card-top-img {
+    height: 13.44rem !important;
+  }
+}

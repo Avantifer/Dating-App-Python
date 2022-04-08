@@ -1,5 +1,8 @@
-h2 {
-    font-size: 2.75rem;
-    line-height: 2.9rem;
+h1, h2, h3, h4, h5, h6 {
     color: $darkgray;
+}
+
+h2 {
+    font-size: 2.75rem !important;
+    line-height: 2.9rem !important;
 }

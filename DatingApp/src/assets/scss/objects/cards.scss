@@ -1,7 +1,12 @@
+.cards {
+  width: 90%;
+  gap: 2rem;
+}
+
 .card {
   max-width: 30rem;
   min-width: 24rem;
-  box-shadow: 0 6px 16px -3px rgba($gray, 0.25);
+  box-shadow: 0 0 11px 1px rgb(73 80 87 / 25%);
   border-radius: 2rem;
 
   .icon {
@@ -40,6 +45,82 @@
 
     .text {
       font-size: 1rem;
+    }
+  }
+}
+
+.cardProduct {
+  border-radius: 3px;
+  max-width: 30rem;
+  min-width: 24rem;
+
+  .card-top-img {
+    height: 14.4rem;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    border-radius: 3px ;
+  }
+
+  .card-body {
+    .title {
+      top: -2.5rem;
+      right: 1rem;
+    }
+
+    .text {
+      border-color: $lightgray;
+    }
+  }
+
+  &:hover {
+    .card-front {
+      transform: rotateY(-180deg);
+    }
+
+    .card-back {
+      transform: rotateY(0deg);
+    }
+  }
+
+  .card-front, .card-back {
+    transition: all 1s ease;
+    backface-visibility: hidden;
+    box-shadow: 0 0 1.25rem rgba(0,0,0, 0.15);
+  }
+
+  .card-back {
+    top: 0;
+    background-color: rgba($lightgray, 0.1);
+    transform: rotateY(180deg);
+
+    &-btn {
+      background-color: white;
+      font-size: 1.25rem;
+      box-shadow: 0 0 15px rgba($lightgray, 0.2);
+      z-index: 2;
+      letter-spacing: 1px;
+  
+      &:hover {
+        transform: translateY(-0.1rem);
+  
+        &::after {
+          transform: scaleX(1.4) scaleY(1.6);
+          opacity: 0;
+        }
+      }
+  
+      &::after {
+        content: "";
+        display: inline-block;
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        border-radius: 50rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.5s;
+      }
     }
   }
 }

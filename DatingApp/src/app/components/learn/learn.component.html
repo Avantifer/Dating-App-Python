@@ -1,0 +1,77 @@
+<div class="">
+  <div class="w-100 mx-auto py-5">
+    <h3 class="w-50 mx-auto text-center font-weight-bold font-italic">
+      {{ "So, Why Choose A Dating App Like Secret Love?" | translate }}
+    </h3>
+    <p class="w-50 mx-auto">
+      {{
+        "When it comes to dating apps, you've got options: Badoo, Bumble, Hinge, Match, POF, Tinder, and many more. It doesn't matter if you want to find love, a date, or just have a casual chat, you still want to find an app that's the right match for you. And it's not always black and white — when you want to meet new people, your friends at Secret Love can help you out with features designed to make the impossible possible. Dating online just got easier"
+          | translate
+      }}.
+    </p>
+    <p class="w-50 mx-auto">
+      {{
+        "We won't brag about being the best free site — we'll let you decide for yourself by giving you Secret Love at a glance."
+          | translate
+      }}
+    </p>
+  </div>
+  <div class="row bg-light border-top">
+    <div class="col-12 col-md-6 mt-5 d-flex flex-column align-items-center">
+      <ng-container *ngFor="let quote of topLeftQuotes">
+        <h3 class="w-65 ml-md-auto text-center font-weight-bold">
+          {{ quote.title | translate }}
+        </h3>
+        <p class="w-65 ml-md-auto mb-5">
+          {{ quote.text | translate }}
+        </p>
+      </ng-container>
+      <div class="img w-100 text-md-right">
+        <img
+          src="../../../assets/img/learn_1.jpg"
+          class="w-50 mr-md-5 mb-5"
+          alt="Learn image 1"
+        />
+      </div>
+      <ng-container *ngFor="let quote of midLeftQuotes">
+        <h3 class="w-65 ml-md-auto text-center font-weight-bold">
+          {{ quote.title | translate }}
+        </h3>
+        <p class="w-65 ml-md-auto mb-5">
+          {{ quote.text | translate }}
+        </p>
+      </ng-container>
+      <div class="img w-100 text-md-right">
+        <img
+          src="../../../assets/img/learn_2.jpg"
+          class="w-50 mr-md-5 mb-5"
+          alt="Learn image 1"
+        />
+      </div>
+      <ng-container *ngFor="let quote of botLeftQuotes">
+        <h3 class="w-65 ml-md-auto text-center font-weight-bold">
+          {{ quote.title | translate }}
+        </h3>
+        <p class="w-65 ml-md-auto mb-5">
+          {{ quote.text | translate }}
+        </p>
+      </ng-container>
+    </div>
+    <div class="col-12 col-md-5 mt-5 d-flex flex-column align-items-center">
+      <ng-container *ngFor="let quote of rightQuotes">
+        <h3 class="w-65 text-center font-weight-bold">
+          {{ quote.title | translate }}
+        </h3>
+        <p class="w-65 mb-5">
+          {{ quote.text | translate }}
+        </p>
+      </ng-container>
+      <img
+        src="../../../assets/img/learn_3.jpg"
+        class="w-65 mx-md-5"
+        alt="Learn image 1"
+      />
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

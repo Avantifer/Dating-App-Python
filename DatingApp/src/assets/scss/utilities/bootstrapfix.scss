@@ -5,3 +5,17 @@
 .user-select-none {
     user-select: none !important;
 }
+
+.w-40 {
+    width: 40% !important;
+} 
+
+.w-65 {
+    width: 65% !important;
+}
+
+@media (min-width: 1200px) {
+    .w-lg-50 {
+        width: 50% !important;
+    }
+}

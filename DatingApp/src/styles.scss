@@ -1,4 +1,21 @@
 @import 'assets/scss/styles.scss';
 
 html, body { height: 100%; & > * { color: $gray !important;} }
-body { margin: 0; font-family: 'Rubik', "Helvetica Neue", sans-serif !important; }
+body { margin: 0; font-family: 'Rubik', "Helvetica Neue", sans-serif !important;  padding-top: 3.4rem; }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+    background: $ghostgray;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $lightgray;
+    border-radius: 3rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $gray;
+}

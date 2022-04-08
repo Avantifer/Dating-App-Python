@@ -1,0 +1,57 @@
+<div class="container-fluid p-5">
+  <router-outlet></router-outlet>
+  <h2 class="text-center">{{ "Subscription Tiers" | translate }}</h2>
+  <h3 class="text-center">{{ "Upgrade to Plus, Mega or Ultra for an enhanced Secret Love experience" | translate }}</h3>
+  <div class="cards row justify-content-center mb-5 mx-auto">
+    <div
+      class="cardProduct col-md mt-3 p-0 border-0 position-relative border"
+      *ngFor="let card of cards"
+    >
+      <div class="card-front w-100 h-100">
+        <img
+          [src]="card.img"
+          alt="Image of the card"
+          class="card-top-img w-100"
+        />
+        <div class="card-body py-4 px-5 mt-3 position-relative">
+          <h3 class="title font-weight-bold position-absolute user-select-none">
+            {{ card.title }}
+          </h3>
+          <p
+            class="text text-center pb-2 my-2 border-bottom user-select-none"
+            *ngFor="let text of card.text"
+          >
+            {{ text | translate }}
+          </p>
+        </div>
+      </div>
+      <div
+        class="card-back w-100 h-100 position-absolute d-flex flex-column align-items-center justify-content-evenly"
+      >
+        <div class="price">
+          <h5
+            class="mb-5 text-center user-select-none text-uppercase font-weight-bold"
+          >
+            {{ "For Only" | translate }}
+          </h5>
+          <h3 class="user-select-none">{{ card.cost }}€</h3>
+        </div>
+        <div class="buttons d-flex flex-column">
+          <span
+            class="card-back-btn py-3 px-5 rounded-pill text-center mb-4 user-select-none text-uppercase position-relative font-weight-bold"
+            role="button"
+            >{{ "Buy Now!" | translate }}</span
+          >
+          <span
+            class="card-back-btn py-3 px-5 rounded-pill text-center user-select-none text-uppercase position-relative font-weight-bold"
+            role="button"
+            [routerLink]="card.link"
+            routerLinkActive="active"
+            >{{ "More Details" | translate }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

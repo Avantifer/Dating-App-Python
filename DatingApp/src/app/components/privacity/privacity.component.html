@@ -1,0 +1,12 @@
+<div class="container p-5">
+    <h1 class="mb-4">{{'Privacy Policy' | translate}}</h1>
+    <p>{{'Welcome to Secret Love\'s Privacy Policy. Thank you for taking the time to read it.' | translate}}</p>
+    <p>{{'We appreciate that you trust us with your information and we intend to always keep that trust. This starts with making sure you understand the information we collect, why we collect it, how it is used and your choices regarding your information. This Policy describes our privacy practices in plain language, keeping legal and technical jargon to a minimum.' | translate}}</p>
+    <ol>
+        <ng-container *ngFor="let privacy of privacity">
+            <li class="mb-3">{{privacy.title | translate}}</li>
+            <p>{{privacy.text | translate}}</p>
+        </ng-container>
+    </ol>
+</div>
+<app-footer></app-footer>

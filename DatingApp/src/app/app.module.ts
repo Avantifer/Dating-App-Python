@@ -29,6 +29,14 @@ import { ModalLoginComponent } from './shared/modals/modal-login/modal-login.com
 import { LoaderService } from './shared/services/loader.service';
 import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
 import { LoaderComponent } from './shared/components/loader/loader.component';
+import { SafetyComponent } from './components/safety/safety.component';
+import { PrivacityComponent } from './components/privacity/privacity.component';
+import { LearnComponent } from './components/learn/learn.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { ProductsComponent } from './components/products/products.component';
+import { SecretLovePlusComponent } from './components/products/secret-love-plus/secret-love-plus.component';
+import { SecretLoveMegaComponent } from './components/products/secret-love-mega/secret-love-mega.component';
+import { SecretLoveUltraComponent } from './components/products/secret-love-ultra/secret-love-ultra.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -41,7 +49,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     ModalLanguageComponent,
     ModalLoginComponent,
-    LoaderComponent
+    LoaderComponent,
+    SafetyComponent,
+    PrivacityComponent,
+    LearnComponent,
+    FooterComponent,
+    ProductsComponent,
+    SecretLovePlusComponent,
+    SecretLoveMegaComponent,
+    SecretLoveUltraComponent
   ],
   imports: [
     BrowserModule,

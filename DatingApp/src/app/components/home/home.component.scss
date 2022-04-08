@@ -1,7 +1,8 @@
 @import "../../../assets/scss/styles.scss";
+
 .container-fluid {
   .img {
-    height: 85vh;
+    height: 75vh;
     background: url("../../../assets/img/home1.webp") no-repeat center;
     background-size: cover;
   }
@@ -9,14 +10,6 @@
   .characteristics {
     transform: translateY(-1.5rem);
     gap: 1rem;
-  }
-
-  .cards {
-    width: 90%;
-  }
-
-  .cards {
-    gap: 2rem;
   }
 
   .quotes {
@@ -34,11 +27,5 @@
   }
   .quotes .quote {
     width: 100% !important;
-  }
-}
-
-@include responsive(laptop-up) {
-  .cards {
-    justify-content: center !important;
   }
 }

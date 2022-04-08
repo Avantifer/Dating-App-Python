@@ -2,8 +2,8 @@
   class="navbar navbar-expand-md navbar-light bg-light fixed-top font-weight-bold"
   data-aos="fade-down"
 >
-  <a class="navbar-brand mr-4" href="#"
-    ><img src="../../../assets/icons/logo.png" alt="Logo"
+  <a class="mr-4" role="button" routerLink="/" routerLinkActive="active"
+    ><img class="my-1" src="../../../assets/icons/logo.png" alt="Logo"
   /></a>
   <button
     class="navbar-toggler"
@@ -18,14 +18,34 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item mr-3" *ngFor="let navLink of navLinks">
-        <a class="nav-link" href="#">{{ navLink.name | translate }}</a>
+        <a
+          class="nav-link"
+          [routerLink]="navLink.link"
+          routerLinkActive="active"
+s          >{{ navLink.name | translate }}</a
+        >
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" role="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{
-          "Products" | translate
-        }}</a>
+        <a
+          class="nav-link dropdown-toggle products"
+          role="button"
+          id="navbarDropdown"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          routerLink="/products"
+          routerLinkActive="active"
+          >{{ "Products" | translate }}</a
+        >
         <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item font-weight-bold py-2" role="button" *ngFor="let menuItem of menuItems">{{menuItem.name}}</a>
+          <a
+            class="dropdown-item font-weight-bold py-2"
+            role="button"
+            *ngFor="let menuItem of menuItems"
+            [routerLink]="menuItem.link"
+            routerLinkActive="active"
+            >{{ menuItem.name }}</a
+          >
         </div>
       </li>
     </ul>

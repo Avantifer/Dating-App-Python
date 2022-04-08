@@ -8,21 +8,36 @@ nav {
   }
 
   img {
-    width: 2.7rem;
-    height: 2.7rem;
+    width: 2.4rem;
+    height: 2.4rem;
   }
 
   a::after {
     vertical-align: 0.1rem;
     margin-left: 0.255rem;
   }
+  
+  .dropdown {
 
-  .dropdown-menu {
-    box-shadow: 0 2px 4px -1px #0003, 0 4px 5px #00000024, 0 1px 10px #0000001f;
-    border: none;
+    &:hover {
+      .dropdown-menu {
+        display: block !important;
+        margin-top: 0;
+      }
+    }
+    
+    .dropdown-menu {
+      box-shadow: 0 2px 4px -1px #0003, 0 4px 5px #00000024, 0 1px 10px #0000001f;
+      border: none;
+  
+      &.show {
+        display: none;
+      }
 
-    .dropdown-item {
-      font-size: 0.85rem;
+      .dropdown-item {
+        font-size: 0.85rem;
+      }
+
     }
   }
 }
