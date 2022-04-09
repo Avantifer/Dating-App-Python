@@ -1,7 +1,12 @@
-<div class="container-fluid p-5">
+<div class="container-fluid p-3 p-sm-5">
   <router-outlet></router-outlet>
   <h2 class="text-center">{{ "Subscription Tiers" | translate }}</h2>
-  <h3 class="text-center">{{ "Upgrade to Plus, Mega or Ultra for an enhanced Secret Love experience" | translate }}</h3>
+  <h3 class="text-center">
+    {{
+      "Upgrade to Plus, Mega or Ultra for an enhanced Secret Love experience"
+        | translate
+    }}
+  </h3>
   <div class="cards row justify-content-center mb-5 mx-auto">
     <div
       class="cardProduct col-md mt-3 p-0 border-0 position-relative border"
@@ -29,21 +34,21 @@
         class="card-back w-100 h-100 position-absolute d-flex flex-column align-items-center justify-content-evenly"
       >
         <div class="price">
-          <h5
+          <h4
             class="mb-5 text-center user-select-none text-uppercase font-weight-bold"
           >
             {{ "For Only" | translate }}
-          </h5>
+          </h4>
           <h3 class="user-select-none">{{ card.cost }}€</h3>
         </div>
         <div class="buttons d-flex flex-column">
           <span
-            class="card-back-btn py-3 px-5 rounded-pill text-center mb-4 user-select-none text-uppercase position-relative font-weight-bold"
+            class="card-back-btn py-3 px-3 px-sm-5 rounded-pill text-center mb-4 user-select-none text-uppercase position-relative font-weight-bold"
             role="button"
             >{{ "Buy Now!" | translate }}</span
           >
           <span
-            class="card-back-btn py-3 px-5 rounded-pill text-center user-select-none text-uppercase position-relative font-weight-bold"
+            class="card-back-btn py-3 px-3 px-sm-5 rounded-pill text-center user-select-none text-uppercase position-relative font-weight-bold"
             role="button"
             [routerLink]="card.link"
             routerLinkActive="active"

@@ -5,7 +5,7 @@
 
 .card {
   max-width: 30rem;
-  min-width: 24rem;
+  min-width: 18rem;
   box-shadow: 0 0 11px 1px rgb(73 80 87 / 25%);
   border-radius: 2rem;
 
@@ -31,7 +31,7 @@
   }
 
   &-top-img {
-    height: 18rem;
+    height: 18.18rem;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
   }
@@ -52,12 +52,12 @@
 .cardProduct {
   border-radius: 3px;
   max-width: 30rem;
-  min-width: 24rem;
+  min-width: 18rem;
 
   .card-top-img {
     height: 14.4rem;
     clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-    border-radius: 3px ;
+    border-radius: 3px;
   }
 
   .card-body {
@@ -81,10 +81,11 @@
     }
   }
 
-  .card-front, .card-back {
+  .card-front,
+  .card-back {
     transition: all 1s ease;
     backface-visibility: hidden;
-    box-shadow: 0 0 1.25rem rgba(0,0,0, 0.15);
+    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.15);
   }
 
   .card-back {
@@ -98,16 +99,16 @@
       box-shadow: 0 0 15px rgba($lightgray, 0.2);
       z-index: 2;
       letter-spacing: 1px;
-  
+
       &:hover {
         transform: translateY(-0.1rem);
-  
+
         &::after {
           transform: scaleX(1.4) scaleY(1.6);
           opacity: 0;
         }
       }
-  
+
       &::after {
         content: "";
         display: inline-block;
@@ -121,6 +122,15 @@
         z-index: -1;
         transition: all 0.5s;
       }
+    }
+
+    h5 {
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    h3 {
+      font-size: 5rem;
     }
   }
 }

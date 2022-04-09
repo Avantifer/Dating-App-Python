@@ -2,7 +2,8 @@ a {
   color: $gray !important;
   background-color: transparent !important;
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     color: $red !important;
   }
 

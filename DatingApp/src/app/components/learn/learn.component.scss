@@ -1,18 +1,18 @@
-@import '../../../assets/scss/styles.scss';
+@import "../../../assets/scss/responsive/learn.scss";
 
 h3 {
-    font-size: 1.5rem;
-    color: black;
-    font-family: 'Rubik', sans-serif;
-    line-height: 2rem;
-    letter-spacing: 0.5px;
+  font-size: 1.5rem;
+  color: black;
+  font-family: "Rubik", sans-serif;
+  line-height: 2rem;
+  letter-spacing: 0.5px;
 }
 
 p {
-    font-size: 1.1rem;
-    line-height: 1.3rem;
+  font-size: 1.1rem;
+  line-height: 1.3rem;
 }
 
 .img {
-    text-align: center;
+  text-align: center;
 }

@@ -1,8 +1,13 @@
-h1, h2, h3, h4, h5, h6 {
-    color: $darkgray;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $darkgray !important;
 }
 
 h2 {
-    font-size: 2.75rem !important;
-    line-height: 2.9rem !important;
+  font-size: 2.75rem !important;
+  line-height: 2.9rem !important;
 }

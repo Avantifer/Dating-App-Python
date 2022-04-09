@@ -1,21 +1,21 @@
 .fixed-top {
-    z-index: 2 !important;
+  z-index: 2 !important;
 }
 
 .user-select-none {
-    user-select: none !important;
+  user-select: none !important;
 }
 
 .w-40 {
-    width: 40% !important;
-} 
+  width: 40% !important;
+}
 
 .w-65 {
-    width: 65% !important;
+  width: 65% !important;
 }
 
 @media (min-width: 1200px) {
-    .w-lg-50 {
-        width: 50% !important;
-    }
+  .w-lg-50 {
+    width: 50% !important;
+  }
 }

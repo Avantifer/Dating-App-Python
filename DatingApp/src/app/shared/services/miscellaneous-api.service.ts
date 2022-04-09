@@ -5,16 +5,17 @@ import { urlServer } from 'src/environments/environment';
 import { SendEmailInfo } from '../models/sendEmailInfo';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class miscellaneousApiService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http : HttpClient) { }
+  endpoint: string = 'miscellaneous/';
 
-  endpoint : string = 'miscellaneous/';
-
-  sendCodeVerificaction(sendEmailInfo : SendEmailInfo) : Observable<string> {
-    return this.http.post<string>(urlServer + this.endpoint + 'sendCodeEmail', sendEmailInfo)
+  sendCodeVerificaction(sendEmailInfo: SendEmailInfo): Observable<string> {
+    return this.http.post<string>(
+      urlServer + this.endpoint + 'sendCodeEmail',
+      sendEmailInfo
+    );
   }
-
 }

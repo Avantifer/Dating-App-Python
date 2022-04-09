@@ -8,10 +8,10 @@
   "
 >
   <div class="logo w-100 text-center">
-    <img src="../../../../assets/icons/logo.png" alt="logo" />
+    <img src="../../../../assets/icons/logo.webp" alt="logo" />
   </div>
   <h1
-    class="title text-center user-select-none font-weight-bold font-italic my-4"
+    class="title text-center user-select-none font-weight-bold font-italic my-2 my-sm-4"
   >
     {{ "Start now" | translate }}
   </h1>
@@ -24,14 +24,14 @@
     <span class="font-weight-bold">{{ "Cookie Policy" | translate }}</span
     >.
   </p>
-  <div class="signup-option mt-4">
+  <div class="signup-option mt-4 d-flex flex-column align-items-center">
     <div
-      class="signup-google signup-option-google d-flex flex-row align-items-center w-100 mb-3 rounded-pill"
+      class="signup-google signup-option-google d-flex flex-row align-items-center mb-3 rounded-pill"
       (click)="loginGoogle()"
     >
       <img
         class="rounded-circle ml-3 mr-2"
-        src="../../../assets/img/google-icon.jpg"
+        src="../../../assets/img/google-icon.webp"
         alt="Icon of Google"
       />
       <span class="user-select-none text-uppercase">{{
@@ -39,7 +39,7 @@
       }}</span>
     </div>
     <div
-      class="singup-mobile signup-option-mobile d-flex flex-row align-items-center w-100 mb-3 rounded-pill"
+      class="singup-mobile signup-option-mobile d-flex flex-row align-items-center mb-3 rounded-pill"
       (click)="wantsWithEmail = true"
     >
       <mat-icon class="text-center my-1 ml-3 mr-2">email</mat-icon>
@@ -58,7 +58,7 @@
       {{ "Welcome" | translate }}
     </h1>
     <div class="logo-welcome text-center">
-      <img src="../../../../assets/icons/logo.png" alt="logo" />
+      <img src="../../../../assets/icons/logo.webp" alt="logo" />
     </div>
     <form [formGroup]="loginForm" class="form text-center w-75 m-auto">
       <p class="label user-select-none mt-3 mb-1 text-left font-weight-bold">
@@ -96,9 +96,12 @@
           matSuffix
           (click)="hidePassword = !hidePassword"
         >
-          <mat-icon class="position-absolute" disableRipple="true" role="button">{{
-            hidePassword ? "visibility_off" : "visibility"
-          }}</mat-icon>
+          <mat-icon
+            class="position-absolute"
+            disableRipple="true"
+            role="button"
+            >{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon
+          >
         </span>
         <mat-error *ngIf="loginForm.controls.password.hasError('required')">{{
           "You need to put a password" | translate
@@ -110,7 +113,7 @@
           "You need to put a 8 character password" | translate
         }}</mat-error>
       </mat-form-field>
-      <button mat-button class="btnLogin mt-3 px-4" (click)="register()">
+      <button mat-button class="btnLogin mt-4 px-4 w-65" (click)="register()">
         {{ "Log in" | translate }}
       </button>
     </form>
@@ -119,7 +122,7 @@
 
 <ng-template #verificationCode>
   <div class="logo logo-welcome text-center">
-    <img src="../../../../assets/icons/logo.png" alt="logo" />
+    <img src="../../../../assets/icons/logo.webp" alt="logo" />
   </div>
   <h1
     class="title text-center user-select-none font-weight-bold font-italic my-4"
@@ -132,9 +135,17 @@
     <h3 class="codetext mb-0">
       {{ "Enter the code sent to" | translate }} {{ emailUser }}
     </h3>
-    <p class="coderesend text-uppercase mb-0 mr-2" role="button" (click)="sendCodeEmail()">
+    <p
+      class="coderesend text-uppercase mb-0 mr-2 ml-auto"
+      role="button"
+      (click)="sendCodeEmail()"
+    >
       {{ "Resend" | translate }}
     </p>
   </div>
-  <code-input class="my-4" [codeLength]="6" (codeCompleted)="verifyCode($event)"></code-input>
+  <code-input
+    class="my-4"
+    [codeLength]="6"
+    (codeCompleted)="verifyCode($event)"
+  ></code-input>
 </ng-template>

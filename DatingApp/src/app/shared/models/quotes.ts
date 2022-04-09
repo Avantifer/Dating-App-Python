@@ -1,9 +1,9 @@
 export class Quote {
-    title : string
-    text : string
+  title: string;
+  text: string;
 
-    constructor(title : string, text : string) {
-        this.title = title
-        this.text = text
-    }
+  constructor(title: string, text: string) {
+    this.title = title;
+    this.text = text;
+  }
 }

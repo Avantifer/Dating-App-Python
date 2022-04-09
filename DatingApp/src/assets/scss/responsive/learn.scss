@@ -1,0 +1,9 @@
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+
+@include media-breakpoint-down(sm) {
+    .w-50, .w-65 {
+      width: 100% !important;
+    }
+  }

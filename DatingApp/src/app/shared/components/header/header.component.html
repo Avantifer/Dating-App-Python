@@ -3,7 +3,7 @@
   data-aos="fade-down"
 >
   <a class="mr-4" role="button" routerLink="/" routerLinkActive="active"
-    ><img class="my-1" src="../../../assets/icons/logo.png" alt="Logo"
+    ><img class="my-1" src="../../../assets/icons/logo.webp" alt="Logo"
   /></a>
   <button
     class="navbar-toggler"
@@ -22,7 +22,8 @@
           class="nav-link"
           [routerLink]="navLink.link"
           routerLinkActive="active"
-s          >{{ navLink.name | translate }}</a
+          s
+          >{{ navLink.name | translate }}</a
         >
       </li>
       <li class="nav-item dropdown">
@@ -39,7 +40,7 @@ s          >{{ navLink.name | translate }}</a
         >
         <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
           <a
-            class="dropdown-item font-weight-bold py-2"
+            class="dropdown-item font-weight-bold px-3 px-md-4 py-2"
             role="button"
             *ngFor="let menuItem of menuItems"
             [routerLink]="menuItem.link"
@@ -63,7 +64,7 @@ s          >{{ navLink.name | translate }}</a
       <li class="nav-item">
         <button
           mat-button
-          class="btnLogin px-4 mx-4 d-flex"
+          class="btnLogin px-4 mx-0 mx-md-4 mt-3 mt-md-0 d-flex"
           (click)="openLoginModal()"
         >
           {{ "Log in" | translate }}

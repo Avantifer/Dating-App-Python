@@ -7,11 +7,15 @@
       class="characteristic text-center position-relative"
       *ngFor="let charac of characteristics"
     >
-      <img
-        [src]="charac.img"
-        alt="Image of the characteristic"
-        class="icon mb-3"
-      />
+      <div
+        class="circle d-flex flex-row align-items-center justify-content-center mx-auto"
+      >
+        <img
+          [src]="charac.img"
+          alt="Image of the characteristic"
+          class="icon"
+        />
+      </div>
       <p class="text">{{ charac.text | translate }}</p>
     </div>
   </div>
@@ -31,7 +35,7 @@
         alt="Image of the card"
         class="card-top-img w-100"
       />
-      <div class="card-body py-4 px-5">
+      <div class="card-body py-4 px-3 px-sm-5">
         <h3 class="title font-weight-bold">{{ card.title | translate }}</h3>
         <p class="text" *ngFor="let text of card.text">
           {{ text | translate }}

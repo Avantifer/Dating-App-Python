@@ -1,0 +1,23 @@
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+
+@include media-breakpoint-down(sm) {
+  .card {
+    .card-top-img {
+      height: 13.5rem !important;
+    }
+  }
+
+  .characteristics .characteristic:not(:first-child) {
+    margin-top: 2rem !important;
+  }
+
+  .quotes .quote {
+    width: 100% !important;
+  }
+
+  .info {
+    width: 100% !important;
+  }
+}

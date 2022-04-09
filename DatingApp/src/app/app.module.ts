@@ -4,7 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS,  } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { LanguageInterceptor } from './shared/interceptors/language.interceptor';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -15,7 +19,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 import { AppRoutingModule } from './app-routing.module';
-import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+  GoogleLoginProvider,
+} from 'angularx-social-login';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -57,7 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductsComponent,
     SecretLovePlusComponent,
     SecretLoveMegaComponent,
-    SecretLoveUltraComponent
+    SecretLoveUltraComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,18 +88,18 @@ export function HttpLoaderFactory(http: HttpClient) {
     AnimateOnScrollModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      }
-    })
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     HttpClient,
     {
-      provide : HTTP_INTERCEPTORS,
-      useClass : LanguageInterceptor,
-      multi : true
+      provide: HTTP_INTERCEPTORS,
+      useClass: LanguageInterceptor,
+      multi: true,
     },
     {
       provide: 'SocialAuthServiceConfig',
@@ -100,14 +108,16 @@ export function HttpLoaderFactory(http: HttpClient) {
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('355017929740-rn8mqgk6noi2g7al2nk7rj8avb6v7aar.apps.googleusercontent.com'),
+            provider: new GoogleLoginProvider(
+              '355017929740-rn8mqgk6noi2g7al2nk7rj8avb6v7aar.apps.googleusercontent.com'
+            ),
           },
         ],
-      } as SocialAuthServiceConfig
+      } as SocialAuthServiceConfig,
     },
     LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

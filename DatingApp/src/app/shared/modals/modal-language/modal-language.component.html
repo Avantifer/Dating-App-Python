@@ -2,13 +2,15 @@
   <mat-icon class="font-weight-bold">close</mat-icon>
 </div>
 <div
-  class="lang row d-flex flex-row align-items-center py-2 m-auto"
+  class="lang row d-flex flex-row align-items-center py-2 m-0 m-sm-auto w-100 px-2 px-sm-0"
   [class]="lang.abr"
   *ngFor="let lang of arrayLanguages"
   [formGroup]="languages"
 >
-  <div class="col-7 langName">
-    <p class="mb-0 user-select-none">{{ lang.name.toUpperCase() | translate }}</p>
+  <div class="col-6 col-sm-7 langName">
+    <p class="mb-0 user-select-none">
+      {{ lang.name.toUpperCase() | translate }}
+    </p>
   </div>
   <div class="col-3">
     <img class="rounded-circle" [src]="lang.icon" alt="Flag of the country" />
@@ -19,6 +21,7 @@
       [value]="lang.abr"
       (change)="changeLange(lang.abr)"
       [checked]="this.langService.actualLanguage === lang.abr"
+      [aria-label]="lang.abr"
     ></mat-radio-button>
   </div>
 </div>

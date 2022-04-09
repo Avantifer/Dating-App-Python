@@ -2,14 +2,10 @@
   width: 15rem;
   transform: translateY(-1.2rem);
 
-  &::before {
-    content: "";
-    width: 3.75rem;
-    height: 3.75rem;
-    background-color: $red;
-    position: absolute;
-    top: -8%;
-    left: 37.2%;
+  .circle {
+    background-color: $lightred;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
   }
 

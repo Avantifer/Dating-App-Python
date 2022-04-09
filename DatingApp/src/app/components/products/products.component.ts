@@ -33,7 +33,11 @@ export class ProductsComponent implements OnInit {
     new CardProduct(
       '../../../assets/img/product3_img.webp',
       'Secret Love Ultra',
-      ['Message before matching', 'Prioritised likes', 'And everything from Secret Love Mega'],
+      [
+        'Message before matching',
+        'Prioritised likes',
+        'And everything from Secret Love Mega',
+      ],
       30,
       'secret-love-ultra'
     ),

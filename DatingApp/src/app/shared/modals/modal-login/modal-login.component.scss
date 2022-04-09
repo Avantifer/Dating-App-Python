@@ -1,9 +1,10 @@
+@import "../../../../assets/scss/responsive/modal-language.scss";
 @import "../../../../assets/scss/styles.scss";
 
 ::ng-deep .mat-dialog-container {
   position: relative;
   border-radius: 0.75rem;
-  padding: 3rem 1.5rem 1.5rem !important;
+  padding: 3rem 1.5rem 1.5rem ;
 }
 
 .logo {
@@ -59,30 +60,7 @@
 }
 
 code-input {
-
-  ::ng-deep input {
-    font-size: 1.35rem !important;
-    height: 3.25rem !important;
-    width: 3.25rem !important;
-  }
-}
-
-@include responsive(mobileS-down) {
-  .signup-option {
-    & > * {
-      height: 3.5rem;
-    }
-
-    span {
-      font-size: 0.9rem !important;
-    }
-  }
-
-  .form {
-    .btnLogin {
-      margin: 2rem 0;
-      padding: 0;
-      width: 100%;
-    }
-  }
+  --item-height : 3.25rem;
+  --item-spacing : 0.563rem;
+  font-size: 1.35rem;
 }

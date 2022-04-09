@@ -1,3 +1,4 @@
+@import "../../../../assets/scss/responsive/modal-language.scss";
 @import "../../../../assets/scss/styles.scss";
 
 ::ng-deep .mat-dialog-container {
@@ -33,20 +34,6 @@
   img {
     width: 40px;
     box-shadow: 1px 1px 11px -2px $gray;
-  }
-}
-
-@include responsive(mobileL-down) {
-  ::ng-deep .mat-dialog-container {
-    padding: 3rem 0 1.5rem;
-  }
-
-  .col-7 {
-    width: 50%;
-
-    p {
-      font-size: 1.2rem;
-    }
   }
 }
 

@@ -1,14 +1,17 @@
 .signup-option {
-  & > *:hover {
-    border-color: rgb(0, 0, 0);
-
-    span,
-    mat-icon {
-      color: rgb(0, 0, 0);
-    }
-  }
 
   & > * {
+    width: 90%;
+
+    &:hover {
+      border-color: rgb(0, 0, 0);
+
+      span,
+      mat-icon {
+        color: rgb(0, 0, 0);
+      }
+    }
+
     cursor: pointer;
     border: 2px solid $gray;
     height: 3.375rem;

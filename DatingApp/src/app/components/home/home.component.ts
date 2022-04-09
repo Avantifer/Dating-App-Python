@@ -19,7 +19,7 @@ import { Quote } from 'src/app/shared/models/quotes';
 export class HomeComponent implements OnInit, AfterViewInit {
   constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.putQuotes();
@@ -27,19 +27,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   characteristics: Characteristic[] = [
     new Characteristic(
-      '../../../assets/icons/star-icon.png',
+      '../../../assets/icons/star-icon.webp',
       'Find the most committed singles.'
     ),
     new Characteristic(
-      '../../../assets/icons/config-icon.png',
+      '../../../assets/icons/config-icon.webp',
       'Detailed profiles, search by criteria and geolocation.'
     ),
     new Characteristic(
-      '../../../assets/icons/mobile-phone-icon.png',
+      '../../../assets/icons/mobile-phone-icon.webp',
       'Secret always accompanies you so you can see him wherever you want.'
     ),
     new Characteristic(
-      '../../../assets/icons/user-icon.png',
+      '../../../assets/icons/user-icon.webp',
       'The most serious dating service.'
     ),
   ];

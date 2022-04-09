@@ -1,0 +1,23 @@
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+
+@include media-breakpoint-down(sm) {
+  .cardProduct {
+    .card-top-img {
+      height: 10.375rem !important;
+    }
+    .card-body {
+      .title {
+        top: -1.7rem !important;
+      }
+    }
+  }
+
+  .card-back-btn:hover {
+      &::after {
+      transform: scaleX(0.8) scaleY(1);
+      opacity: 0;
+    }
+  }
+}

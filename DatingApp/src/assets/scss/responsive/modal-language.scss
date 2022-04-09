@@ -1,0 +1,13 @@
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+
+@include media-breakpoint-down(sm) {
+  ::ng-deep .mat-dialog-container {
+    padding: 3rem 1rem 1.5rem !important;
+  }
+
+  .langName p {
+    font-size: 1.1rem !important;
+  }
+}

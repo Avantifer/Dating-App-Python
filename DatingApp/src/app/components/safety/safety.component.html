@@ -1,24 +1,24 @@
-<div class="container p-5">
-  <h1 class="mb-4">{{ "Dating Safety Tips" | translate }}</h1>
-  <p class="mb-4">
+<div class="container pt-4 p-4 p-sm-5">
+  <h1 class="mb-4 w-100">{{ "Dating Safety Tips" | translate }}</h1>
+  <p class="mb-4 w-100">
     {{
       "Meeting new people is exciting, but you should always be cautious when interacting with someone you don't know. Use your best judgment and put your safety first, whether you are exchanging initial messages or meeting in person. While you can't control the actions of others, there are things you can do to help you stay safe during your Secret Love experience."
         | translate
     }}
   </p>
-  <h2 class="mb-4">{{'Online Safety' | translate}}</h2>
-  <ul>
-    <ng-container *ngFor="let safeTip of tipsMeeting">
-      <li class="mb-3">{{ safeTip.title | translate }}</li>
-      <p>{{ safeTip.text | translate }}</p>
-    </ng-container>
-  </ul>
-  <h2 class="mb-4">{{'Meeting in Person' | translate}}</h2>
-  <ul>
-    <ng-container *ngFor="let meetTip of tipsSafety">
-      <li class="mb-3">{{ meetTip.title | translate }}</li>
-      <p>{{ meetTip.text | translate }}</p>
-    </ng-container>
-  </ul>
+  <h2 class="mb-4 w-100">{{ "Online Safety" | translate }}</h2>
+  <ng-container *ngFor="let safeTip of tipsMeeting">
+    <ul>
+      <li class="mb-3 w-100">{{ safeTip.title | translate }}</li>
+    </ul>
+    <p class="w-100 ml-4">{{ safeTip.text | translate }}</p>
+  </ng-container>
+  <h2 class="mb-4 w-100">{{ "Meeting in Person" | translate }}</h2>
+  <ng-container *ngFor="let meetTip of tipsSafety">
+    <ul>
+      <li class="mb-3 w-100">{{ meetTip.title | translate }}</li>
+    </ul>
+    <p class="w-100 ml-4">{{ meetTip.text | translate }}</p>
+  </ng-container>
 </div>
 <app-footer></app-footer>

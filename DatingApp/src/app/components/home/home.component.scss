@@ -1,5 +1,3 @@
-@import "../../../assets/scss/styles.scss";
-
 .container-fluid {
   .img {
     height: 75vh;
@@ -14,18 +12,5 @@
 
   .quotes {
     width: 94%;
-  }
-}
-
-@include responsive(mobileL-down) {
-  .card-top-img {
-    height: 16rem !important;
-  }
-
-  .characteristics .characteristic:not(:first-child) {
-    margin-top: 2rem !important;
-  }
-  .quotes .quote {
-    width: 100% !important;
   }
 }

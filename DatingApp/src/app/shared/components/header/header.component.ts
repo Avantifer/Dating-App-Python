@@ -24,17 +24,17 @@ export class HeaderComponent implements OnInit {
     if (!localStorage.getItem('lang')) this.langService.setLang('en');
   }
 
-  navLinks : NavLink[] = [
+  navLinks: NavLink[] = [
     new NavLink('Safety', '/safety'),
     new NavLink('Privacity', '/privacity'),
-    new NavLink('Learn', '/learn')
+    new NavLink('Learn', '/learn'),
   ];
 
-  menuItems : NavLink[] = [
+  menuItems: NavLink[] = [
     new NavLink('Secret Love Plus', '/products/secret-love-plus'),
     new NavLink('Secret Love Mega', '/products/secret-love-mega'),
-    new NavLink('Secret Love Ultra', '/products/secret-love-ultra')
-  ]
+    new NavLink('Secret Love Ultra', '/products/secret-love-ultra'),
+  ];
 
   openLanguageModal(): void {
     this.dialog.open(ModalLanguageComponent, {
