@@ -6,4 +6,6 @@ export const environment = {
   production: false
 };
 
-export const urlServer = 'http://127.0.0.1:8000/';
+export const server =  {
+  url : 'http://127.0.0.1:8000/'
+};
