@@ -28,6 +28,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CodeInputModule } from 'angular-code-input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
@@ -46,7 +48,7 @@ import { SecretLovePlusComponent } from './components/products/secret-love-plus/
 import { SecretLoveMegaComponent } from './components/products/secret-love-mega/secret-love-mega.component';
 import { SecretLoveUltraComponent } from './components/products/secret-love-ultra/secret-love-ultra.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import { LoginComponent } from './components/login/login.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -68,6 +70,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SecretLovePlusComponent,
     SecretLoveMegaComponent,
     SecretLoveUltraComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +90,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatRadioModule,
     SocialLoginModule,
     CodeInputModule,
+    MatSnackBarModule,
     AnimateOnScrollModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
@@ -117,7 +121,7 @@ export function HttpLoaderFactory(http: HttpClient) {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '355017929740-rn8mqgk6noi2g7al2nk7rj8avb6v7aar.apps.googleusercontent.com'
+              '355017929740-47bgasutcmckk9mh7947qf83d1049aos.apps.googleusercontent.com'
             ),
           },
         ],

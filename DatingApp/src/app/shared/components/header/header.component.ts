@@ -25,15 +25,15 @@ export class HeaderComponent implements OnInit {
   }
 
   navLinks: NavLink[] = [
-    new NavLink('Safety', '/safety'),
-    new NavLink('Privacity', '/privacity'),
-    new NavLink('Learn', '/learn'),
+    new NavLink('Safety', '/home/safety'),
+    new NavLink('Privacity', '/home/privacity'),
+    new NavLink('Learn', '/home/learn'),
   ];
 
   menuItems: NavLink[] = [
-    new NavLink('Secret Love Plus', '/products/secret-love-plus'),
-    new NavLink('Secret Love Mega', '/products/secret-love-mega'),
-    new NavLink('Secret Love Ultra', '/products/secret-love-ultra'),
+    new NavLink('Secret Love Plus', '/home/products/secret-love-plus'),
+    new NavLink('Secret Love Mega', '/home/products/secret-love-mega'),
+    new NavLink('Secret Love Ultra', '/home/products/secret-love-ultra'),
   ];
 
   openLanguageModal(): void {

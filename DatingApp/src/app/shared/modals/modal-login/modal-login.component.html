@@ -106,9 +106,6 @@
         <mat-error *ngIf="loginForm.controls.password.hasError('required')">{{
           "You need to put a password" | translate
         }}</mat-error>
-        <mat-error *ngIf="loginForm.controls.password.hasError('pattern')">{{
-          "You need to put a correct password" | translate
-        }}</mat-error>
         <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">{{
           "You need to put a 8 character password" | translate
         }}</mat-error>
@@ -129,12 +126,17 @@
   >
     {{ "Introduce your code" | translate }}
   </h1>
-  <div
-    class="top-part d-flex flex-row justify-content-between align-items-center flex-wrap"
-  >
+  <div class="top-part">
     <h3 class="codetext mb-0">
       {{ "Enter the code sent to" | translate }} {{ emailUser }}
     </h3>
+  </div>
+  <code-input
+    class="my-4"
+    [codeLength]="6"
+    (codeCompleted)="verifyCode($event)"
+  ></code-input>
+  <div class="d-flex">
     <p
       class="coderesend text-uppercase mb-0 mr-2 ml-auto"
       role="button"
@@ -143,9 +145,4 @@
       {{ "Resend" | translate }}
     </p>
   </div>
-  <code-input
-    class="my-4"
-    [codeLength]="6"
-    (codeCompleted)="verifyCode($event)"
-  ></code-input>
 </ng-template>

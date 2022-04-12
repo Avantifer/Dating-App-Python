@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { miscellaneousApiService } from '../../services/miscellaneous-api.service';
 import { SendEmailInfo } from '../../models/sendEmailInfo';
+import { MessageService } from '../../services/message.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-modal-login',
@@ -10,23 +12,36 @@ import { SendEmailInfo } from '../../models/sendEmailInfo';
   styleUrls: ['./modal-login.component.scss'],
 })
 export class ModalLoginComponent implements OnInit {
-  constructor(private socialAuthService: SocialAuthService, private miscellaneous : miscellaneousApiService) {}
+  constructor(
+    private socialAuthService: SocialAuthService,
+    private miscellaneous: miscellaneousApiService,
+    private message: MessageService
+  ) {}
 
   ngOnInit(): void { }
 
-  wantsWithEmail : boolean = false;
-  hidePassword : boolean = true;
-  codeVerification : boolean = false;
-  emailUser : string = '';
-  passwordUser : string = '';
-  lang : string = localStorage.getItem('lang')!;
-  codeFromEmail : string = '';
+  wantsWithEmail: boolean = false;
+  hidePassword: boolean = true;
+  codeVerification: boolean = false;
+  emailUser: string = '';
+  passwordUser: string = '';
+  lang: string = localStorage.getItem('lang')!;
+  codeFromEmail: string = '';
 
   loginForm = new FormGroup({
-    email : new FormControl('', Validators.compose([Validators.required, Validators.pattern(/^(.+)@(.+)$/)])),
-    password : new FormControl('', Validators.compose([Validators.pattern(/^[a-zA-z0-9]+/), Validators.required, Validators.minLength(8)])),
+    email: new FormControl(
+      '',
+      Validators.compose([
+        Validators.required,
+        Validators.pattern(/^(.+)@(hotmail|outlook|gmail).(com|es)$/),
+      ])
+    ),
+    password: new FormControl(
+      '',
+      Validators.compose([Validators.required, Validators.minLength(8)])
+    ),
   });
-  
+
   loginGoogle() {
     this.socialAuthService
       .signIn(GoogleLoginProvider.PROVIDER_ID)
@@ -41,35 +56,34 @@ export class ModalLoginComponent implements OnInit {
       });
   }
 
-  register() : void {
+  register(): void {
     if (this.loginForm.valid) {
       this.emailUser = this.loginForm.controls.email.value;
       this.passwordUser = this.loginForm.controls.password.value;
-      this.goToVerificationCode()
+      this.goToVerificationCode();
     }
   }
 
-  goToVerificationCode() : void {
+  goToVerificationCode(): void {
     this.codeVerification = true;
     this.wantsWithEmail = false;
-    this.lang = localStorage.getItem('lang')!
+    this.lang = localStorage.getItem('lang')!;
     this.sendCodeEmail();
   }
 
-  verifyCode(code : string) : void {
+  verifyCode(code: string): void {
     if (code === this.codeFromEmail) {
-      console.log('Todo piola')
-    }else {
-      console.log('No coinciden ambos codigos')
+      console.log('Todo piola');
+    } else {
+      this.message.showInformation("Both codes don't match");
     }
   }
 
-  sendCodeEmail() : void {
-    this.miscellaneous.sendCodeVerificaction(new SendEmailInfo(this.emailUser, this.lang))
-    .subscribe( (code : string) => {
-      this.codeFromEmail = code;
-    }, (error) => {
-      console.log('Algo ha pasado')
-    });
+  sendCodeEmail(): void {
+    this.miscellaneous
+      .sendCodeVerificaction(new SendEmailInfo(this.emailUser, this.lang))
+      .subscribe((code: string) => {
+        this.codeFromEmail = code;
+      });
   }
 }
