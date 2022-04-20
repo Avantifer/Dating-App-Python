@@ -23,6 +23,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.putQuotes();
+    let day = 12;
+    let month = 5;
+    let year = 2002;
+    let date : string = 12 + '-' + 5 + '-' + 2002
+
+    console.log(typeof date);
   }
 
   characteristics: Characteristic[] = [

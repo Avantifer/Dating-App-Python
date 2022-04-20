@@ -1,3 +1,66 @@
+@import '../../../assets/scss/styles.scss';
+
 body {
-    padding-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+nav {
+  font-size: 1.1rem;
+  img {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.center {
+  form {
+    width: 40%;
+
+    .name, .tel {
+      &.mat-form-field {
+        width: 100%;
+      }
+
+      ::ng-deep .mat-form-field-subscript-wrapper {
+        padding: 0 !important;
+      }
+    }
+
+    .name {
+      ::ng-deep .mat-form-field-wrapper {
+        width: 90%;
+      }
+    }
+
+    .tel {
+      ::ng-deep .mat-form-field-flex, ::ng-deep .mat-form-field-underline {
+        width: 35% !important;
+      }
+    }
+
+    .gender,
+    .birthday,
+    .interest {
+      gap: 5%;
+    }
+
+    .birthday {
+      mat-form-field {
+        width: 22%;
+        min-width: 5rem;
+      }
+    }
+  }
+
+  .images {
+    width: 60%;
+
+    .inputs {
+      gap: 5%;
+    }
+  }
+}
+
+button {
+  width: 12rem;
 }

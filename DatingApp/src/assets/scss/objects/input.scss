@@ -4,7 +4,7 @@
   .mat-error {
     font-size: 0.8rem !important;
   }
-  
+
   .btn-password {
     &:focus {
       outline: none;
@@ -45,17 +45,21 @@
 
 ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
-  height: 100% !important;
+  height: 98% !important;
   background-color: transparent !important;
-  border: 2px solid $lightred !important;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(228 33 27) 0px 0px 0px 2px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px !important;
   border-radius: 4px !important;
   left: -1px !important;
   top: 1px !important;
 }
 
 ::ng-deep .mat-form-field-underline {
-  height: 72% !important;
-  width: 100.8% !important;
+  left: 1px;
+  height: 70% !important;
+  width: 100% !important;
 }
 
 ::ng-depp .mat-form-field.mat-focused .mat-form-field-ripple {
@@ -64,4 +68,37 @@
 
 ::ng-deep .mat-form-field-ripple {
   background-color: transparent !important;
+}
+
+.error-custom {
+  bottom: -0.3rem;
+}
+
+.semi-button {
+  color: $lightgray;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+  border-radius: 4px;
+  padding: 0.7rem 1.92rem;
+
+  &.selected {
+    box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+      rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(228 33 27) 0px 0px 0px 1px,
+      rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+      rgb(0 0 0 / 0%) 0px 0px 0px 0px !important;
+    color: $lightred !important;
+  }
+}
+
+.blocked {
+  ::ng-deep .mat-form-field-flex {
+    background-color: rgba($lightgray, 0.15) !important;
+    box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+      rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 50%) 0px 0px 0px 2px,
+      rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+      rgb(0 0 0 / 0%) 0px 0px 0px 0px !important;
+    color: $lightgray !important;
+  }
 }

@@ -157,8 +157,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/shared/services/language.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/shared/services/language.service.ts:25</a></div>
                 </td>
             </tr>
 
@@ -194,8 +194,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/shared/services/language.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/shared/services/language.service.ts:35</a></div>
                 </td>
             </tr>
 
@@ -273,7 +273,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/services/language.service.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/services/language.service.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -299,15 +299,23 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[ 
-    {abr : &#x27;en&#x27;, name : &#x27;English&#x27;, icon : &#x27;../../../../assets/icons/usa-icon.png&#x27;},
-    {abr : &#x27;es&#x27;, name : &#x27;Spanish&#x27;, icon : &#x27;../../../../assets/icons/spain-icon.png&#x27;}
+                        <i>Default value : </i><code>[
+    {
+      abr: &#x27;en&#x27;,
+      name: &#x27;English&#x27;,
+      icon: &#x27;../../../../assets/icons/usa-icon.webp&#x27;,
+    },
+    {
+      abr: &#x27;es&#x27;,
+      name: &#x27;Spanish&#x27;,
+      icon: &#x27;../../../../assets/icons/spain-icon.webp&#x27;,
+    },
   ]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/shared/services/language.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/shared/services/language.service.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -324,32 +332,39 @@
 import { Lang } from &#x27;../models/lang.interfaces&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class LanguageService {
+  constructor() {}
 
-  constructor() { }
-
-  arrayLanguages : Array&lt;Lang&gt; &#x3D; [ 
-    {abr : &#x27;en&#x27;, name : &#x27;English&#x27;, icon : &#x27;../../../../assets/icons/usa-icon.png&#x27;},
-    {abr : &#x27;es&#x27;, name : &#x27;Spanish&#x27;, icon : &#x27;../../../../assets/icons/spain-icon.png&#x27;}
+  arrayLanguages: Array&lt;Lang&gt; &#x3D; [
+    {
+      abr: &#x27;en&#x27;,
+      name: &#x27;English&#x27;,
+      icon: &#x27;../../../../assets/icons/usa-icon.webp&#x27;,
+    },
+    {
+      abr: &#x27;es&#x27;,
+      name: &#x27;Spanish&#x27;,
+      icon: &#x27;../../../../assets/icons/spain-icon.webp&#x27;,
+    },
   ];
 
-  actualLanguage : string &#x3D; localStorage.getItem(&#x27;lang&#x27;) || &#x27;en&#x27;;
+  actualLanguage: string &#x3D; localStorage.getItem(&#x27;lang&#x27;) || &#x27;en&#x27;;
 
-  getLangName() : string {
-    let langName : string &#x3D; &#x27;&#x27;;
-    this.arrayLanguages.forEach( (lang : Lang) &#x3D;&gt; {
+  getLangName(): string {
+    let langName: string &#x3D; &#x27;&#x27;;
+    this.arrayLanguages.forEach((lang: Lang) &#x3D;&gt; {
       if (lang.abr &#x3D;&#x3D; this.actualLanguage) {
-        langName &#x3D; lang.name
+        langName &#x3D; lang.name;
       }
     });
-    return langName
+    return langName;
   }
 
-  setLang(lang : string) : void {
+  setLang(lang: string): void {
     localStorage.setItem(&#x27;lang&#x27;, lang);
-    this.actualLanguage &#x3D; lang
+    this.actualLanguage &#x3D; lang;
   }
 }
 </code></pre>

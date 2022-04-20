@@ -1,0 +1,47 @@
+.profilePics {
+  min-width: 8rem;
+  height: 11rem;
+  max-width: 15rem;
+  background-color: rgba($lightgray, 0.15);
+
+  &.withImage {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  input {
+    width: 104%;
+    height: 104%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    bottom: -0.5rem;
+    right: -0.5rem;
+    background-color: $lightred;
+
+    &-close {
+      background-color: white;
+      box-shadow: 1px 1px 4px $lightgray;
+      z-index: 2;
+
+      mat-icon {
+        color: $red !important;
+      }
+    }
+
+    &.invisible {
+      display: none !important;
+    }
+
+    mat-icon {
+      color: white;
+    }
+  }
+}

@@ -3,9 +3,11 @@
 @import "../../../../node_modules/bootstrap/scss/variables";
 
 @include media-breakpoint-down(sm) {
-    ::ng-deep .mat-dialog-container {
-        padding: 1rem !important;
+  ::ng-deep .modal-login {
+    mat-dialog-container {
+      padding: 1rem !important;
     }
+  }
 
   .signup-option {
     & > * {

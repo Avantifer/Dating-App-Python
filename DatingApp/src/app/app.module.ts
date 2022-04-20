@@ -29,6 +29,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CodeInputModule } from 'angular-code-input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { EncrDecrService } from '../app/shared/services/encr-decr.service';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -49,6 +50,8 @@ import { SecretLoveMegaComponent } from './components/products/secret-love-mega/
 import { SecretLoveUltraComponent } from './components/products/secret-love-ultra/secret-love-ultra.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { LoginComponent } from './components/login/login.component';
+import { Page404Component } from './shared/components/page404/page404.component';
+import { MainComponent } from './components/main/main.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -71,6 +74,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SecretLoveMegaComponent,
     SecretLoveUltraComponent,
     LoginComponent,
+    Page404Component,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,10 +108,11 @@ export function HttpLoaderFactory(http: HttpClient) {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
   providers: [
+    EncrDecrService,
     HttpClient,
     {
       provide: HTTP_INTERCEPTORS,

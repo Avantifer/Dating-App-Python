@@ -1,6 +1,8 @@
 from fastapi import APIRouter
-from .miscellaneous import router as miscellaneous_router
+from api.v1 import miscellaneous, user, profilepics
 
 api_router : APIRouter = APIRouter()
 
-api_router.include_router(miscellaneous_router, prefix = '/miscellaneous')
+api_router.include_router(miscellaneous.router, prefix = '/miscellaneous')
+api_router.include_router(user.router, prefix = '/user')
+api_router.include_router(profilepics.router, prefix='/profilepics')

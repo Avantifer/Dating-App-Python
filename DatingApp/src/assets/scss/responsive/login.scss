@@ -1,0 +1,35 @@
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+
+@include media-breakpoint-down(xl) {
+  .form {
+    width: 100% !important;
+
+    .mat-form-field {
+      &.name,
+      &.email,
+      &.country,
+      &.tel {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .images {
+    width: 100% !important;
+
+    .inputs {
+      gap: 0% !important;
+      justify-content: space-around !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .tel {
+    ::ng-deep .mat-form-field-wrapper {
+      width: 55% !important;
+    } 
+  }
+}

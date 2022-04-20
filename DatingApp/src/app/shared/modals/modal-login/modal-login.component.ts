@@ -4,7 +4,11 @@ import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { miscellaneousApiService } from '../../services/miscellaneous-api.service';
 import { SendEmailInfo } from '../../models/sendEmailInfo';
 import { MessageService } from '../../services/message.service';
-import { TranslateService } from '@ngx-translate/core';
+import { LoginScreenService } from '../../services/login-screen.service';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { UserApiService } from '../../services/user-api.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-modal-login',
@@ -15,7 +19,11 @@ export class ModalLoginComponent implements OnInit {
   constructor(
     private socialAuthService: SocialAuthService,
     private miscellaneous: miscellaneousApiService,
-    private message: MessageService
+    private message: MessageService,
+    public loginScreen : LoginScreenService,
+    private router : Router,
+    private dialog: MatDialog,
+    private userApi : UserApiService
   ) {}
 
   ngOnInit(): void { }
@@ -23,8 +31,6 @@ export class ModalLoginComponent implements OnInit {
   wantsWithEmail: boolean = false;
   hidePassword: boolean = true;
   codeVerification: boolean = false;
-  emailUser: string = '';
-  passwordUser: string = '';
   lang: string = localStorage.getItem('lang')!;
   codeFromEmail: string = '';
 
@@ -47,7 +53,7 @@ export class ModalLoginComponent implements OnInit {
       .signIn(GoogleLoginProvider.PROVIDER_ID)
       .then(() => {
         this.socialAuthService.authState.subscribe((googleUser) => {
-          this.emailUser = googleUser.email;
+          this.loginScreen.email = googleUser.email;
           this.goToVerificationCode();
         });
       })
@@ -58,8 +64,8 @@ export class ModalLoginComponent implements OnInit {
 
   register(): void {
     if (this.loginForm.valid) {
-      this.emailUser = this.loginForm.controls.email.value;
-      this.passwordUser = this.loginForm.controls.password.value;
+      this.loginScreen.email = this.loginForm.controls.email.value;
+      this.loginScreen.password = this.loginForm.controls.password.value;
       this.goToVerificationCode();
     }
   }
@@ -73,7 +79,15 @@ export class ModalLoginComponent implements OnInit {
 
   verifyCode(code: string): void {
     if (code === this.codeFromEmail) {
-      console.log('Todo piola');
+      this.userApi.getUser(this.loginScreen.email).subscribe((user : User) => {
+        if (user) {
+          this.router.navigate(['main'])
+        } else {
+          this.loginScreen.wantsAccess();
+          this.router.navigate(['/login']);
+        }
+        this.dialog.closeAll();
+      })
     } else {
       this.message.showInformation("Both codes don't match");
     }
@@ -81,7 +95,7 @@ export class ModalLoginComponent implements OnInit {
 
   sendCodeEmail(): void {
     this.miscellaneous
-      .sendCodeVerificaction(new SendEmailInfo(this.emailUser, this.lang))
+      .sendCodeVerificaction(new SendEmailInfo(this.loginScreen.email, this.lang))
       .subscribe((code: string) => {
         this.codeFromEmail = code;
       });

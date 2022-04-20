@@ -1,0 +1,15 @@
+@import '../../../../assets/scss/settings/colors.scss';
+
+img {
+    height: 21rem;
+}
+
+.subtitle {
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+span {
+    color: $lightred;
+    text-decoration: underline;
+}

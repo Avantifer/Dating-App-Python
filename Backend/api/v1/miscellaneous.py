@@ -7,6 +7,7 @@ router = APIRouter()
 
 @router.post('/sendCodeEmail',
              tags=['miscellaneous'],
+             summary='Send verification email',
              response_model=str,
              response_description='Code to verify the email')
 async def sendCodeEmail(email_model: SendEmailModel):

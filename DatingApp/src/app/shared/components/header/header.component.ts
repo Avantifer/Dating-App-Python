@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { ModalLanguageComponent } from '../../modals/modal-language/modal-language.component';
 import { ModalLoginComponent } from '../../modals/modal-login/modal-login.component';
 import { LanguageService } from '../../services/language.service';
+import { NavLink } from '../../models/navLink';
 // @ts-ignore
 import * as AOS from 'aos';
-import { NavLink } from '../../models/navLink';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +16,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     public translateService: TranslateService,
     private dialog: MatDialog,
-    public langService: LanguageService
+    public langService: LanguageService,
   ) {}
 
   ngOnInit(): void {
@@ -36,15 +35,10 @@ export class HeaderComponent implements OnInit {
     new NavLink('Secret Love Ultra', '/home/products/secret-love-ultra'),
   ];
 
-  openLanguageModal(): void {
-    this.dialog.open(ModalLanguageComponent, {
-      width: '26rem',
-    });
-  }
-
   openLoginModal(): void {
     this.dialog.open(ModalLoginComponent, {
       width: '30rem',
+      panelClass : 'modal-login'
     });
   }
 }

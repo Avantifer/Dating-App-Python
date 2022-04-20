@@ -2,9 +2,14 @@
   class="navbar navbar-expand-md navbar-light bg-light fixed-top font-weight-bold"
   data-aos="fade-down"
 >
-  <a class="mr-4" role="button" routerLink="/" routerLinkActive="active"
-    ><img class="my-1" src="../../../assets/icons/logo.webp" alt="Logo"
-  /></a>
+  <img
+    class="my-1 mr-4"
+    role="button"
+    routerLink="/home"
+    routerLinkActive="active"
+    src="../../../assets/icons/logo.webp"
+    alt="Logo"
+  />
   <button
     class="navbar-toggler"
     type="button"
@@ -54,11 +59,11 @@
       <li class="nav-item language d-flex flex-row align-items-center">
         <a
           class="d-flex flex-row align-items-center"
-          (click)="openLanguageModal()"
+          (click)="langService.openLanguageModal()"
           role="button"
         >
           <mat-icon class="mr-1">language</mat-icon>
-          {{ this.langService.getLangName() | translate }}
+          {{ langService.getLangName() | translate }}
         </a>
       </li>
       <li class="nav-item">

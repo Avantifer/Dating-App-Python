@@ -119,8 +119,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">src/app/shared/interceptors/language.interceptor.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">src/app/shared/interceptors/language.interceptor.ts:12</a></div>
                 </td>
             </tr>
 
@@ -187,19 +187,26 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from &#x27;@angular/common/http&#x27;;
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+} from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 
 @Injectable()
 export class LanguageInterceptor implements HttpInterceptor {
-
-  intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+  intercept(
+    request: HttpRequest&lt;any&gt;,
+    next: HttpHandler
+  ): Observable&lt;HttpEvent&lt;any&gt;&gt; {
     const lang &#x3D; localStorage.getItem(&#x27;lang&#x27;) || &#x27;en&#x27;;
 
     request &#x3D; request.clone({
-      setHeaders : {
-        &#x27;Accept-Language&#x27; : lang
-      }
+      setHeaders: {
+        &#x27;Accept-Language&#x27;: lang,
+      },
     });
 
     return next.handle(request);

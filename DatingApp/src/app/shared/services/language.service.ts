@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalLanguageComponent } from '../modals/modal-language/modal-language.component';
 import { Lang } from '../models/lang.interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LanguageService {
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   arrayLanguages: Array<Lang> = [
     {
@@ -35,5 +37,12 @@ export class LanguageService {
   setLang(lang: string): void {
     localStorage.setItem('lang', lang);
     this.actualLanguage = lang;
+  }
+
+  openLanguageModal() : void {
+    this.dialog.open(ModalLanguageComponent, {
+      width: '26rem',
+      panelClass: 'modal-language'
+    });
   }
 }

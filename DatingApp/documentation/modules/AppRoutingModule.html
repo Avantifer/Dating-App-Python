@@ -75,16 +75,49 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { HomeComponent } from &#x27;./components/home/home.component&#x27;;
+import { LearnComponent } from &#x27;./components/learn/learn.component&#x27;;
+import { LoginComponent } from &#x27;./components/login/login.component&#x27;;
+import { PrivacityComponent } from &#x27;./components/privacity/privacity.component&#x27;;
+import { ProductsComponent } from &#x27;./components/products/products.component&#x27;;
+import { SecretLoveMegaComponent } from &#x27;./components/products/secret-love-mega/secret-love-mega.component&#x27;;
+import { SecretLovePlusComponent } from &#x27;./components/products/secret-love-plus/secret-love-plus.component&#x27;;
+import { SecretLoveUltraComponent } from &#x27;./components/products/secret-love-ultra/secret-love-ultra.component&#x27;;
+import { SafetyComponent } from &#x27;./components/safety/safety.component&#x27;;
+import { LoginScreenGuard } from &#x27;./login-screen.guard&#x27;;
+import { HeaderComponent } from &#x27;./shared/components/header/header.component&#x27;;
+import { Page404Component } from &#x27;./shared/components/page404/page404.component&#x27;;
 
 const routes: Routes &#x3D; [
-  {path : &#x27;&#x27;,component:HomeComponent},
+  { path: &#x27;&#x27;, redirectTo: &#x27;/home&#x27;, pathMatch: &#x27;full&#x27; },
+  {
+    path: &#x27;home&#x27;,
+    component: HeaderComponent,
+    children: [
+      { path: &#x27;&#x27;, component: HomeComponent },
+      { path: &#x27;safety&#x27;, component: SafetyComponent },
+      { path: &#x27;privacity&#x27;, component: PrivacityComponent },
+      { path: &#x27;learn&#x27;, component: LearnComponent },
+      {
+        path: &#x27;products&#x27;,
+        component: ProductsComponent,
+        children: [
+          { path: &#x27;secret-love-plus&#x27;, component: SecretLovePlusComponent },
+          { path: &#x27;secret-love-mega&#x27;, component: SecretLoveMegaComponent },
+          { path: &#x27;secret-love-ultra&#x27;, component: SecretLoveUltraComponent },
+        ],
+      },
+    ],
+  },
+  { path: &#x27;login&#x27;, component: LoginComponent, canActivate: [LoginScreenGuard] },
+  { path: &#x27;**&#x27;, redirectTo: &#x27;/404&#x27;, pathMatch: &#x27;prefix&#x27; },
+  { path: &#x27;404&#x27;, component: Page404Component },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 </code></pre>
     </div>
 </div>

@@ -1,1 +1,224 @@
-<p>login works!</p>
+<nav
+  class="navbar navbar-expand-md navbar-light bg-light fixed-top font-weight-bold"
+  data-aos="fade-down"
+>
+  <img
+    class="mr-auto"
+    role="button"
+    routerLink="/home"
+    routerLinkActive="active"
+    src="../../../assets/icons/logo.webp"
+    alt="Logo"
+  />
+  <ul class="navbar-nav mr-4">
+    <li class="nav-item language d-flex flex-row align-items-center">
+      <a
+        class="d-flex flex-row align-items-center"
+        (click)="langService.openLanguageModal()"
+        role="button"
+      >
+        <mat-icon class="mr-1">language</mat-icon>
+        {{ this.langService.getLangName() | translate }}
+      </a>
+    </li>
+  </ul>
+</nav>
+<div class="container-fluid py-4 mt-nav text-center">
+  <h2 class="mb-5 mt-3 font-italic">{{ "Create Account" | translate }}</h2>
+  <div
+    class="center d-flex flex-column flex-xl-row justify-content-center w-75 mx-auto"
+  >
+    <form [formGroup]="userForm" class="form">
+      <div class="position-relative ml-xl-4">
+        <p class="label user-select-none mt-3 mb-2 text-left font-weight-bold">
+          {{ "Name" | translate }}
+        </p>
+        <mat-form-field appearance="fill" class="name">
+          <input
+            matInput
+            type="text"
+            formControlName="name"
+            placeholder="{{ 'Name' | translate }}"
+            autocomplete="off"
+          />
+
+          <mat-error *ngIf="userForm.controls.name.hasError('required')">{{
+            "You need to put a name" | translate
+          }}</mat-error>
+          <mat-error *ngIf="userForm.controls.name.hasError('pattern')">{{
+            "Put a correct name" | translate
+          }}</mat-error>
+          <mat-error *ngIf="userForm.controls.name.hasError('maxlength')">{{
+            "Cannot exceed 25 characters" | translate
+          }}</mat-error>
+        </mat-form-field>
+        <mat-error
+          class="position-absolute error-custom"
+          *ngIf="
+            userForm.controls.name.status === 'INVALID' &&
+            userForm.controls.name.touched === false &&
+            comprobationForm === true
+          "
+          >{{ "You need to put a name" | translate }}</mat-error
+        >
+      </div>
+      <div class="position-relative ml-xl-4">
+        <p class="label user-select-none mt-3 mb-2 text-left font-weight-bold">
+          {{ "Telephone" | translate }}
+        </p>
+        <mat-form-field appearance="fill" class="tel">
+          <input
+            matInput
+            type="text"
+            formControlName="tel"
+            placeholder="620767877"
+            autocomplete="off"
+          />
+          <mat-error *ngIf="userForm.controls.tel.hasError('required')">{{
+            "You need to put a telephone" | translate
+          }}</mat-error>
+        </mat-form-field>
+        <mat-error
+          class="position-absolute error-custom"
+          *ngIf="
+            userForm.controls.tel.status === 'INVALID' &&
+            userForm.controls.tel.touched === false &&
+            comprobationForm === true
+          "
+          >{{ "You need to put a telephone" | translate }}</mat-error
+        >
+      </div>
+      <p
+        class="label user-select-none mt-3 mb-2 ml-xl-4 text-left font-weight-bold"
+      >
+        {{ "Birthday" | translate }}
+      </p>
+      <div
+        class="birthday d-flex flex-row flex-wrap ml-xl-4 position-relative"
+        formGroupName="birthday"
+      >
+        <mat-form-field
+          appearance="fill"
+          *ngFor="let option of birthdayOptions"
+        >
+          <input
+            matInput
+            type="tel"
+            [formControlName]="option.name"
+            [placeholder]="option.placeholder"
+            autocomplete="off"
+            class="text-center"
+            [maxlength]="option.length"
+          />
+        </mat-form-field>
+        <mat-error
+          class="position-absolute error-custom"
+          *ngIf="
+            (userForm.controls.birthday.status === 'INVALID' &&
+              userForm.controls.birthday.touched === true) ||
+            (userForm.controls.birthday.status === 'INVALID' &&
+              comprobationForm === true)
+          "
+          >{{ "Put a correct date" | translate }}</mat-error
+        >
+      </div>
+      <p
+        class="label user-select-none mt-3 mb-2 ml-xl-4 text-left font-weight-bold"
+      >
+        {{ "Gender" | translate }}
+      </p>
+      <div class="gender d-flex flex-row flex-wrap ml-xl-4 position-relative">
+        <span
+          role="button"
+          class="mb-3 semi-button"
+          (click)="selectOption($event, 'gender', option)"
+          *ngFor="let option of genderOptions"
+          >{{ option.name | translate }}</span
+        >
+        <mat-error
+          class="position-absolute error-custom"
+          *ngIf="
+            userForm.controls.gender.status === 'INVALID' &&
+            comprobationForm === true
+          "
+          >{{ "You need to select one of these" | translate }}</mat-error
+        >
+      </div>
+      <p
+        class="label user-select-none mt-3 mb-2 ml-xl-4 text-left font-weight-bold"
+      >
+        {{ "I'm interested in" | translate }}
+      </p>
+      <div class="interest d-flex flex-row flex-wrap ml-xl-4 position-relative">
+        <span
+          role="button"
+          class="mb-3 semi-button"
+          (click)="selectOption($event, 'interest', option)"
+          *ngFor="let option of interestOptions"
+          >{{ option.name | translate }}</span
+        >
+        <mat-error
+          class="position-absolute error-custom"
+          *ngIf="
+            userForm.controls.interest.status === 'INVALID' &&
+            comprobationForm === true
+          "
+          >{{ "You need to select one of these" | translate }}</mat-error
+        >
+      </div>
+      <p
+        class="label user-select-none mt-3 mb-2 ml-xl-4 text-left font-weight-bold"
+      >
+        {{ "Email Address" | translate }}
+      </p>
+      <mat-form-field appearance="fill" class="email blocked">
+        <input matInput disabled [value]="loginScreen.email" />
+      </mat-form-field>
+
+      <p
+        class="label user-select-none mt-3 mb-2 ml-xl-4 text-left font-weight-bold"
+      >
+        {{ "Country" | translate }}
+      </p>
+      <mat-form-field appearance="fill" class="country blocked">
+        <input matInput disabled [value]="this.country | translate" />
+      </mat-form-field>
+    </form>
+    <div class="images ml-xl-5">
+      <h3 class="font-weight-bold text-left mt-4 mt-xl-0 ml-xl-4">
+        {{ "Profile Photo" | translate }}
+      </h3>
+      <div class="inputs d-flex flex-row flex-wrap w-100 ml-xl-4">
+        <div
+          [class]="'profilePics m-2 position-relative rounded ' + i"
+          role="button"
+          *ngFor="let i of profilePicsNumbers"
+        >
+          <input
+            type="file"
+            class="position-absolute"
+            role="button"
+            (change)="getPhoto($event)"
+          />
+          <div
+            class="circle position-absolute rounded-circle d-flex align-items-center justify-content-center"
+          >
+            <mat-icon>add</mat-icon>
+          </div>
+          <div
+            class="circle circle-close invisible position-absolute rounded-circle"
+          >
+            <mat-icon
+              class="h-100 w-100 d-flex align-items-center justify-content-center"
+              (click)="deletePhoto($event)"
+              >close</mat-icon
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button mat-button (click)="register()" class="mt-4">
+    {{ "Continue" | translate }}
+  </button>
+</div>
