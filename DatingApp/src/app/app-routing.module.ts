@@ -10,15 +10,18 @@ import { SecretLoveMegaComponent } from './components/products/secret-love-mega/
 import { SecretLovePlusComponent } from './components/products/secret-love-plus/secret-love-plus.component';
 import { SecretLoveUltraComponent } from './components/products/secret-love-ultra/secret-love-ultra.component';
 import { SafetyComponent } from './components/safety/safety.component';
-import { LoginScreenGuard } from './login-screen.guard';
+import { MainGuard } from './shared/guards/main.guard';
+import { LoginScreenGuard } from './shared/guards/login-screen.guard';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { Page404Component } from './shared/components/page404/page404.component';
+import { HomeGuard } from './shared/guards/home.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home',
     component: HeaderComponent,
+    canActivate: [HomeGuard],
     children: [
       { path: '', component: HomeComponent },
       { path: 'safety', component: SafetyComponent },
@@ -33,10 +36,10 @@ const routes: Routes = [
           { path: 'secret-love-ultra', component: SecretLoveUltraComponent },
         ],
       },
-    ],
+    ]
   },
   { path: 'login', component: LoginComponent, canActivate: [LoginScreenGuard] },
-  { path : 'main', component : MainComponent},
+  { path : 'main', component : MainComponent, canActivate: [MainGuard]},
   { path: '**', redirectTo: '/404', pathMatch: 'prefix' },
   { path: '404', component: Page404Component },
 ];

@@ -81,7 +81,10 @@ export class ModalLoginComponent implements OnInit {
     if (code === this.codeFromEmail) {
       this.userApi.getUser(this.loginScreen.email).subscribe((user : User) => {
         if (user) {
-          this.router.navigate(['main'])
+          this.userApi.login(user.user_id).subscribe((token : string) => {
+            window.localStorage.setItem('auth', token);
+          });
+          this.router.navigate(['/main']);
         } else {
           this.loginScreen.wantsAccess();
           this.router.navigate(['/login']);

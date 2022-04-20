@@ -31,6 +31,7 @@ import { CodeInputModule } from 'angular-code-input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EncrDecrService } from '../app/shared/services/encr-decr.service';
 import { environment } from '../environments/environment';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
@@ -106,14 +107,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
   providers: [
     EncrDecrService,
     HttpClient,
+    JwtHelperService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LanguageInterceptor,

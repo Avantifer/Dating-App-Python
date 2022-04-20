@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivate, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LoginScreenService } from './shared/services/login-screen.service';
+import { LoginScreenService } from '../services/login-screen.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +9,7 @@ import { LoginScreenService } from './shared/services/login-screen.service';
 export class LoginScreenGuard implements CanActivate {
   constructor(private loginScreen : LoginScreenService, private router : Router) {  }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       
     if (!this.loginScreen.hasAccess()) {
       this.router.navigate(['/home'])

@@ -185,6 +185,9 @@ export class LoginComponent implements OnInit {
           this.profilePicsApi.create(profilePic).subscribe();
         }
 
+        this.userApi.login(user.user_id).subscribe((token : string) => {
+          window.localStorage.setItem('auth', token);
+        });
         this.router.navigate(['/main']);
       } else {
         this.message.showInformation('You need to put some images');

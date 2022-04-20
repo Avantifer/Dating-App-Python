@@ -20,4 +20,8 @@ export class UserApiService {
   getUser(email : string) : Observable<User> {
     return this.http.get<User>(server.url + this.endpoint + 'find/' + email);
   }
+
+  login(user_id : string) : Observable<string> {
+    return this.http.get<string>(server.url + this.endpoint + 'login/' + user_id)
+  }
 }
