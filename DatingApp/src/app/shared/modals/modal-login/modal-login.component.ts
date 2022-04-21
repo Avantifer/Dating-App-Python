@@ -20,21 +20,22 @@ export class ModalLoginComponent implements OnInit {
     private socialAuthService: SocialAuthService,
     private miscellaneous: miscellaneousApiService,
     private message: MessageService,
-    public loginScreen : LoginScreenService,
-    private router : Router,
+    public loginScreen: LoginScreenService,
+    private router: Router,
     private dialog: MatDialog,
-    private userApi : UserApiService
+    private userApi: UserApiService
   ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   wantsWithEmail: boolean = false;
+  wantsChangePassword: boolean = false;
   hidePassword: boolean = true;
   codeVerification: boolean = false;
   lang: string = localStorage.getItem('lang')!;
   codeFromEmail: string = '';
 
-  loginForm = new FormGroup({
+  loginForm: FormGroup = new FormGroup({
     email: new FormControl(
       '',
       Validators.compose([
@@ -45,6 +46,16 @@ export class ModalLoginComponent implements OnInit {
     password: new FormControl(
       '',
       Validators.compose([Validators.required, Validators.minLength(8)])
+    ),
+  });
+
+  changePasswordForm: FormGroup = new FormGroup({
+    email: new FormControl(
+      '',
+      Validators.compose([
+        Validators.required,
+        Validators.pattern(/^(.+)@(hotmail|outlook|gmail).(com|es)$/),
+      ])
     ),
   });
 
@@ -79,18 +90,18 @@ export class ModalLoginComponent implements OnInit {
 
   verifyCode(code: string): void {
     if (code === this.codeFromEmail) {
-      this.userApi.getUser(this.loginScreen.email).subscribe((user : User) => {
+      this.userApi.getUser(this.loginScreen.email).subscribe((user: User) => {
         if (user) {
-          this.userApi.login(user.user_id).subscribe((token : string) => {
+          this.userApi.login(user.user_id).subscribe((token: string) => {
             window.localStorage.setItem('auth', token);
+            this.router.navigate(['/main']);
           });
-          this.router.navigate(['/main']);
         } else {
           this.loginScreen.wantsAccess();
           this.router.navigate(['/login']);
         }
         this.dialog.closeAll();
-      })
+      });
     } else {
       this.message.showInformation("Both codes don't match");
     }
@@ -98,9 +109,33 @@ export class ModalLoginComponent implements OnInit {
 
   sendCodeEmail(): void {
     this.miscellaneous
-      .sendCodeVerificaction(new SendEmailInfo(this.loginScreen.email, this.lang))
+      .sendCodeVerificaction(
+        new SendEmailInfo(this.loginScreen.email, this.lang)
+      )
       .subscribe((code: string) => {
         this.codeFromEmail = code;
       });
+  }
+
+  sendPasswordEmail(): void {
+    let email: string = this.changePasswordForm.controls.email.value;
+    this.userApi.getUser(email).subscribe((user: User) => {
+      if (user) {
+        this.miscellaneous
+          .sendPasswordEmail(new SendEmailInfo(email, this.lang))
+          .subscribe((result: boolean) => {
+            if (result) {
+              this.wantsChangePassword = false;
+            }
+          });
+      } else {
+        this.message.showInformation('That email is not registered');
+      }
+    });
+  }
+
+  goBackInitial(): void {
+    this.wantsWithEmail = false;
+    this.codeVerification = false;
   }
 }

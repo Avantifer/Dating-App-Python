@@ -12,7 +12,7 @@ router = APIRouter()
              summary='Register an user to the database',
              response_model=bool,
              response_description='Boolean depends if it was created or not')
-def register(profile_pic : ProfilePicsModel, db: Session = Depends(get_db)) :
+async def register(profile_pic : ProfilePicsModel, db: Session = Depends(get_db)) :
     try :
         session.execute(insert(ProfilePics).values(dict(profile_pic)))
         session.commit()

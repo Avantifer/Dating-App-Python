@@ -4,7 +4,7 @@ from fastapi import HTTPException
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
-from secret import secret_jwt
+from core.secret import secret_jwt
 
 class AuthHandler():
     security = HTTPBearer()

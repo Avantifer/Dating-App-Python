@@ -18,4 +18,8 @@ export class miscellaneousApiService {
       sendEmailInfo
     );
   }
+
+  sendPasswordEmail(sendEmailInfo : SendEmailInfo): Observable<boolean> {
+    return this.http.post<boolean>(server.url + this.endpoint + 'sendPasswordEmail', sendEmailInfo)
+  }
 }

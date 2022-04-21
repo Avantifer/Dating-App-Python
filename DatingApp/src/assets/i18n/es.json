@@ -368,5 +368,9 @@
   "Telephone" : "Teléfono",
   "You need to put a telephone" : "Tienes que poner algún teléfono",
   "You need to put some images" : "Tienes que poner alguna imagen",
-  "Something ocurred" : "Algo ha ocurrido"
+  "Something ocurred" : "Algo ha ocurrido",
+  "Forgot Password?" : "¿Has olvidado tu contraseña?",
+  "Enter your user account's email address and we will send you a password." : "Introduce el la dirección del correo de tu cuenta y nosotros te enviaremos una contraseña.",
+  "Send password" : "Enviar contraseña",
+  "That email is not registered" : "Ese correo no está registrado"
 }

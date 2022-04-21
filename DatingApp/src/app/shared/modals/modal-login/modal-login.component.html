@@ -51,73 +51,85 @@
 </div>
 
 <ng-template #registerEmail>
-  <div *ngIf="codeVerification === false; else verificationCode">
-    <h1
-      class="title title-welcome text-center user-select-none font-weight-bold font-italic my-4"
-    >
-      {{ "Welcome" | translate }}
-    </h1>
-    <div class="logo-welcome text-center">
-      <img src="../../../../assets/icons/logo.webp" alt="logo" />
-    </div>
-    <form [formGroup]="loginForm" class="form text-center w-75 m-auto">
-      <p class="label user-select-none mt-3 mb-1 text-left font-weight-bold">
-        Email
-      </p>
-      <mat-form-field appearance="fill">
-        <input
-          matInput
-          type="text"
-          formControlName="email"
-          placeholder="Email"
-          autocomplete="off"
-        />
-        <mat-error *ngIf="loginForm.controls.email.hasError('required')">{{
-          "You need to put an email" | translate
-        }}</mat-error>
-        <mat-error *ngIf="loginForm.controls.email.hasError('pattern')">{{
-          "You need to put a correct email" | translate
-        }}</mat-error>
-      </mat-form-field>
-      <p class="label user-select-none mt-3 mb-1 text-left font-weight-bold">
-        {{ "Password" | translate }}
-      </p>
-      <mat-form-field appearance="fill">
-        <input
-          matInput
-          [type]="hidePassword ? 'password' : 'text'"
-          formControlName="password"
-          placeholder="{{ 'Password' | translate }}"
-          autocomplete="off"
-        />
-        <span
-          class="btn-password"
-          mat-icon-button
-          matSuffix
-          (click)="hidePassword = !hidePassword"
-        >
-          <mat-icon
-            class="position-absolute"
-            disableRipple="true"
-            role="button"
-            >{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon
+  <div *ngIf="wantsChangePassword === false; else passwordChange">
+    <div *ngIf="codeVerification === false; else verificationCode">
+      <mat-icon class="position-absolute goBack" role="button" (click)="goBackInitial()">arrow_back_ios</mat-icon>
+      <h1
+        class="title title-welcome text-center user-select-none font-weight-bold font-italic my-4"
+      >
+        {{ "Welcome" | translate }}
+      </h1>
+      <div class="logo-welcome text-center">
+        <img src="../../../../assets/icons/logo.webp" alt="logo" />
+      </div>
+      <form [formGroup]="loginForm" class="form text-center w-75 m-auto">
+        <p class="label user-select-none mt-3 mb-1 text-left font-weight-bold">
+          Email
+        </p>
+        <mat-form-field appearance="fill">
+          <input
+            matInput
+            type="text"
+            formControlName="email"
+            placeholder="Email"
+            autocomplete="off"
+          />
+          <mat-error *ngIf="loginForm.controls.email.hasError('required')">{{
+            "You need to put an email" | translate
+          }}</mat-error>
+          <mat-error *ngIf="loginForm.controls.email.hasError('pattern')">{{
+            "You need to put a correct email" | translate
+          }}</mat-error>
+        </mat-form-field>
+        <p class="label user-select-none mt-3 mb-1 text-left font-weight-bold">
+          {{ "Password" | translate }}
+        </p>
+        <mat-form-field appearance="fill">
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            placeholder="{{ 'Password' | translate }}"
+            autocomplete="off"
+          />
+          <span
+            class="btn-password"
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword = !hidePassword"
           >
-        </span>
-        <mat-error *ngIf="loginForm.controls.password.hasError('required')">{{
-          "You need to put a password" | translate
-        }}</mat-error>
-        <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">{{
-          "You need to put a 8 character password" | translate
-        }}</mat-error>
-      </mat-form-field>
-      <button mat-button class="btnLogin mt-4 px-4 w-65" (click)="register()">
-        {{ "Log in" | translate }}
-      </button>
-    </form>
+            <mat-icon
+              class="position-absolute"
+              disableRipple="true"
+              role="button"
+              >{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon
+            >
+          </span>
+          <mat-error *ngIf="loginForm.controls.password.hasError('required')">{{
+            "You need to put a password" | translate
+          }}</mat-error>
+          <mat-error
+            *ngIf="loginForm.controls.password.hasError('minlength')"
+            >{{
+              "You need to put a 8 character password" | translate
+            }}</mat-error
+          >
+        </mat-form-field>
+        <div class="w-100 text-right">
+          <a class="mr-3 resetPassword" role="button" (click)="wantsChangePassword = !wantsChangePassword">{{
+            "Forgot Password?" | translate
+          }}</a>
+        </div>
+        <button mat-button class="btnLogin mt-4 px-4 w-65" (click)="register()">
+          {{ "Log in" | translate }}
+        </button>
+      </form>
+    </div>
   </div>
 </ng-template>
 
 <ng-template #verificationCode>
+  <mat-icon class="position-absolute goBack" role="button" (click)="codeVerification = !codeVerification">arrow_back_ios</mat-icon>
   <div class="logo logo-welcome text-center">
     <img src="../../../../assets/icons/logo.webp" alt="logo" />
   </div>
@@ -145,4 +157,37 @@
       {{ "Resend" | translate }}
     </p>
   </div>
+</ng-template>
+
+<ng-template #passwordChange>
+  <mat-icon class="position-absolute goBack" role="button" (click)="wantsChangePassword = !wantsChangePassword">arrow_back_ios</mat-icon>
+  <div class="logo logo-welcome text-center">
+    <img src="../../../../assets/icons/logo.webp" alt="logo" />
+  </div>
+  <h1
+    class="title title-welcome text-center user-select-none font-weight-bold font-italic my-4"
+  >
+    {{ "Welcome" | translate }}
+  </h1>
+  <p class="ml-4 mr-3">{{"Enter your user account's email address and we will send you a password." | translate}}</p>
+  <form [formGroup]="changePasswordForm" class="form text-center w-100 m-auto">
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        type="text"
+        formControlName="email"
+        placeholder="Email"
+        autocomplete="off"
+      />
+      <mat-error *ngIf="loginForm.controls.email.hasError('required')">{{
+        "You need to put an email" | translate
+      }}</mat-error>
+      <mat-error *ngIf="loginForm.controls.email.hasError('pattern')">{{
+        "You need to put a correct email" | translate
+      }}</mat-error>
+    </mat-form-field>
+    <button mat-button class="btnLogin mt-4 px-4 w-65" (click)="sendPasswordEmail()">
+      {{ "Send password" | translate }}
+    </button>
+  </form>
 </ng-template>
