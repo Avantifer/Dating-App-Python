@@ -103,5 +103,5 @@ class Email() :
         msg.attach(MIMEText(html, 'html'))
         
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as server:
-            server.login('ferenandoruiz@gmail.com', password_email)
-            server.sendmail('ferenandoruiz@gmail.com', self.to_email, msg.as_string())
+            server.login('secretloveapp@gmail.com', password_email)
+            server.sendmail('secretloveapp@gmail.com', self.to_email, msg.as_string())

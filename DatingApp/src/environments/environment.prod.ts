@@ -4,5 +4,10 @@ export const environment = {
 
 export const server = {
   production : true,
-  url : 'http://127.0.0.1:8000/'
+  url : 'https://uvicorndatingapp.herokuapp.com/'
 }
+
+export const keyEncrypt = {
+  production: true,
+  key : 'b2VWL0iHmcRWLmO'
+};
